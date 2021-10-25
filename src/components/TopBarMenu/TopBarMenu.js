@@ -6,13 +6,28 @@ export default function TopBarMenu() {
     <div className="TopBarMenu">
       <div className="row custom-container">
         <div className="col">
-          <div className="">liên hệ : 0339905697</div>
+          <div className="">logo</div>
         </div>
         <div className="col">
           <div className="row">
-            <a>asxac</a>
-            <a></a>
-            <a></a>
+            <div className="col-3">
+              <a>asxac</a>
+            </div>
+            <div className="col-3">
+              <a>asxac</a>
+            </div>
+            <div className="col-3">
+              <a>asxac</a>
+            </div>
+            <div className="col-3">
+              <a>asxac</a>
+            </div>
+          </div>
+        </div>
+        <div className="col">
+          <div className="row">
+            <div className="col">đăng nhập</div>
+            <div className="col">đăng kí</div>
           </div>
         </div>
       </div>
