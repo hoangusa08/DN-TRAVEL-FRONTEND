@@ -1,12 +1,13 @@
 import React from "react";
 import "./TopBarMenu.scss";
+import logo from "../../assets/image/logo1.png";
 
 export default function TopBarMenu() {
   return (
     <div className="TopBarMenu">
       <div className="row custom-container">
         <div className="col">
-          <div className="">logo</div>
+          <img className="logo" src={logo}></img>
         </div>
         <div className="col">
           <div className="row">
