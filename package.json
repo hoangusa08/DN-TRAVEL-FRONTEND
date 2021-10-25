@@ -13,11 +13,8 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.23.0",
     "bootstrap": "^5.1.3",
-<<<<<<< HEAD
     "eslint-plugin-react": "^7.26.1",
-=======
     "font-awesome": "^4.7.0",
->>>>>>> fb747bc061bcb1cf3538f3cd2310c9b89ae34e78
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-awesome-slider": "^4.1.0",
