@@ -1,10 +1,12 @@
 import "./App.css";
 import Home from "./pages/home/Home";
+import Tour from "./pages/tour/tour";
 
 function App() {
   return (
     <div>
-      <Home />
+      {/* <Home /> */}
+      <Tour></Tour>
     </div>
   );
 }

@@ -1,0 +1,33 @@
+.suggestions-home {
+  margin: 20px 100px 0;
+  align-items: center;
+  .title{
+    text-align: center;
+    font-size: 50px;
+  }
+  .content{
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0 20x;
+  }
+  .list-card{
+    margin-top: 20px;
+  }
+  .ctn-seemore{
+    display: flex;
+    justify-content: center;
+    .see-more{
+      margin-top: 20px;
+      border: 0;
+      background-color: rgb(12, 119, 206);
+      color: white;
+      padding: 5px 50px;
+      border-radius: 10px;
+      cursor:pointer;
+    }
+    .see-more:hover{
+      background-color: rgb(6, 51, 134);
+    }
+  }
+  
+}
