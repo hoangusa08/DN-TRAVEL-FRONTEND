@@ -1,12 +1,14 @@
 import "./App.css";
-import Home from "./pages/home/Home";
-import Tour from "./pages/tour/tour";
+// import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+// import Tour from "./pages/tour/tour";
 
 function App() {
   return (
-    <div>
+    <div >
       {/* <Home /> */}
-      <Tour></Tour>
+      {/* <Tour></Tour> */}
+      <Login />
     </div>
   );
 }
