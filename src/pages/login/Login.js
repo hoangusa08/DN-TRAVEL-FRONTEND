@@ -42,7 +42,10 @@ export default function Login() {
                 handleOnChangeInput={handleOnChangeInput}
                 value={dataLogin.password}
               />
-              <button onClick={sumitLogin}>login</button>
+              <button onClick={sumitLogin}>Submit</button>
+              <div>
+                <span>Forgot password</span>
+              </div>
             </div>
           </div>
           <div className="col-6">

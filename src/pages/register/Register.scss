@@ -1,0 +1,37 @@
+.register {
+  background: url("../../assets/image/register.jpg") no-repeat center;
+  height: 100vh;
+  overflow: auto;
+  &-ctn {
+    height: 50vh;
+    margin: 5% 20% 0;
+    overflow: auto;
+    display: block;
+    .form-parent {
+      position: relative;
+      .form-input {
+        width: 95%;
+        height: 50px;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 20px;
+        text-align: center;
+        outline-color :white;
+      }
+      .icon {
+        color: white;
+        margin: 5px;
+        padding: 10px;
+        min-width: 40px;
+        position: absolute;
+      }
+      ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1; /* Firefox */
+        font-size: 20px;
+      }
+    }
+  }
+}

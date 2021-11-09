@@ -20,6 +20,7 @@ const slice = createSlice({
     loginSuccess: (state, action) => {
       const { payload } = action;
       state.user = payload?.user;
+      console.log(payload?.user);
       setUserLocal(payload?.token, payload?.user);
       if (payload?.rememberMe?.isRemember) {
         localStorage.setItem("rememberMe", JSON.stringify(payload?.rememberMe));
@@ -61,19 +62,16 @@ export default slice.reducer;
 const { loginSuccess, logoutSuccess, setLoading } = slice.actions;
 
 export const login = (values) => async (dispatch) => {
-  // const history = useHistory();
   try {
     dispatch(setLoading({ loading: true }));
-    const { data } = await http.post("/authen/login", {
+    const data  = await http.post("/authen/login", {
       email: values.email,
       password: values.password
     });
-
     let user = {
       ...data.user
     };
     const token = data.access_token || false;
-
     const rememberMe = {
       isRemember: values.isRemember,
       email: values.email,

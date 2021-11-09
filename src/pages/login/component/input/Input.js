@@ -6,7 +6,6 @@ export default function Input({ ...props }) {
   const { handleOnChangeInput } = props;
   const handleOnChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     handleOnChangeInput(e.target.value, props.type);
   };
   return (
