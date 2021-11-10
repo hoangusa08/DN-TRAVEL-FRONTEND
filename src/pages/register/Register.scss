@@ -4,11 +4,13 @@
   overflow: auto;
   &-ctn {
     height: 50vh;
-    margin: 5% 20% 0;
+    margin: 10% 20% 0;
     overflow: auto;
     display: block;
+   text-align: center;
     .form-parent {
       position: relative;
+      margin-top: 5px;
       .form-input {
         width: 95%;
         height: 50px;
@@ -31,6 +33,27 @@
         color: white;
         opacity: 1; /* Firefox */
         font-size: 20px;
+      }
+    }
+    button{
+      color: white;
+      background: none;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid white;
+      padding: 5px 15px;
+    }
+    button:hover{
+      background-color: white;
+      color: black;
+    }
+    .back-login{
+      margin-top: 10px;
+      span{
+        color: white;
+      }
+      a{
+        color: orange;
       }
     }
   }
