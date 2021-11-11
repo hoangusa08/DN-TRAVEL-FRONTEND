@@ -1,0 +1,48 @@
+.pagination{
+    height: 60px;
+    background-color: #eee;
+
+    &-items{
+        display: flex;
+        width: 100%;
+        list-style: none;
+        height: 100%;
+        text-align: center;
+        align-items: center;
+
+        padding-left: 0;
+        list-style: none;
+        border-radius: 0.25rem;
+
+        .previous-page,
+        .next-page {
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .previous-page,
+        .next-page,
+        .page-number {
+            li {
+                background-color: transparent;
+            }
+            &.selected {
+                // Only set border for active page
+                .page-link {
+                    z-index: 3;
+                    color: #007bff;
+                    background-color: #fff;
+                    border-color: #007bff;
+                    border: 1px solid;
+                }
+            }
+
+            .page-link {
+                border: none;
+                background-color: transparent;
+            }
+
+        }
+    }
+}
