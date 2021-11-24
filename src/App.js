@@ -1,16 +1,21 @@
 import "./App.css";
-// import Home from "./pages/home/Home";
+import Toast from "./components/Toast";
+import { routeConfig, RouteWithSubRoutes } from "./router/config";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import Tour from "./pages/tour/tour";
 
 function App() {
   return (
-    <div >
-      {/* <Home /> */}
-      <Tour></Tour>
-      {/* <Login /> */}
-      {/* <Register/> */}
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          {routeConfig.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
+      </BrowserRouter>
+      <Toast />
     </div>
   );
 }
