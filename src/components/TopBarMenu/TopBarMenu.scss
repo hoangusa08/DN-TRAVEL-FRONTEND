@@ -1,11 +1,20 @@
 .TopBarMenu {
-  background-color: black;
-  color: white;
-  text-align: center;
+  background-color: white;
+  color: black;
+  height: 50px;
+  // position: fixed;
   .custom-container {
     margin: 0 100px 0;
+    height: 100%;
+    text-align: center;
+    align-items: center;
   }
   .login {
     float: right;
+  }
+  .logo{
+    height: 50px;
+    width: 250px;
+    
   }
 }

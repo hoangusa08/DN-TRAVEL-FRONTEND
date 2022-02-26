@@ -1,0 +1,60 @@
+.register {
+  background: url("../../assets/image/register.jpg") no-repeat center;
+  height: 100vh;
+  overflow: auto;
+  &-ctn {
+  
+    margin: 10% 20% 0;
+    overflow: auto;
+    display: block;
+   text-align: center;
+    .form-parent {
+      position: relative;
+      margin-top: 5px;
+      .form-input {
+        width: 95%;
+        height: 50px;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 20px;
+        text-align: center;
+        outline-color :white;
+      }
+      .icon {
+        color: white;
+        margin: 5px;
+        padding: 10px;
+        min-width: 40px;
+        position: absolute;
+      }
+      ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1; /* Firefox */
+        font-size: 20px;
+      }
+    }
+    button{
+      color: white;
+      background: none;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid white;
+      padding: 5px 15px;
+    }
+    button:hover{
+      background-color: white;
+      color: black;
+    }
+    .back-login{
+      margin-top: 10px;
+      span{
+        color: white;
+      }
+      a{
+        color: orange;
+      }
+    }
+  }
+}

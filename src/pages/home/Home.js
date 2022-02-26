@@ -1,10 +1,11 @@
 import React from "react";
-import TopBarMenu from "../../components/TopBarMenu/TopBarMenu";
+import SuggestionsHome from "../../components/SuggestionsHome/SuggestionsHome";
+import MainLayout from "../../layout/MainLayout";
 
 export default function Home() {
   return (
-    <div>
-      <TopBarMenu />
-    </div>
+    <MainLayout>
+      <SuggestionsHome/>
+    </MainLayout>
   );
 }

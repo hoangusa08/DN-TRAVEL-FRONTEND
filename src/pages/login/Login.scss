@@ -1,0 +1,19 @@
+.login{
+  background-color: rgb(216, 195, 195);
+  &-ctn{
+    border-radius: 1px solid black;
+    height: 80%;
+    padding: 5%;
+    background-color: white;
+    .custom{
+      background-color: whitesmoke;
+      box-shadow: 5px 5px 5px rgb(163, 163, 152);
+      img{
+        width: 100%;
+      }
+      .ctn-input{
+        margin: 20%;
+      }
+    }
+  }
+}
