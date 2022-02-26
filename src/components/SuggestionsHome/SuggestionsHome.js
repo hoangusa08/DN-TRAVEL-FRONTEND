@@ -11,7 +11,7 @@ export default function SuggestionsHome() {
       </div>
       <div className="row list-card">
         {Array.from({ length: 5 }).map((index) => (
-          <div className="col">
+          <div className="col" key={index}>
             <CardTour />
           </div>
         ))}

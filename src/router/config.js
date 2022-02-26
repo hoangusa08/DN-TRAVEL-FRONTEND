@@ -3,9 +3,22 @@ import { Redirect, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register"
+import Home from "../pages/home/Home"
 
 
 export const routeConfig = [
+  // {
+  //   path: "/home",
+  //   isPrivate: false,
+  //   exact: true,
+  //   component: Tour
+  // },
+  {
+    path: "/home",
+    isPrivate: false,
+    exact: true,
+    component: Home
+  },
   {
     path: "/register",
     isPrivate: false,
@@ -26,7 +39,7 @@ const PrivateRoute = (privateProps) => {
 
   if (user) return <privateProps.component {...privateProps} />;
 
-  return <Redirect to="/login" />;
+  return <Redirect to="/home" />;
 };
 
 export const RouteWithSubRoutes = (route) => {

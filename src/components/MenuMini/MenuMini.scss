@@ -1,0 +1,13 @@
+.menu-mini-ctn{
+  height: 550px;
+  width: 100%;
+  background-color: aqua;
+  position: absolute;
+  z-index: 1;
+}
+
+@media screen and (min-width: 760px){
+  .menu-mini-ctn{
+    display: none;
+  }
+}
