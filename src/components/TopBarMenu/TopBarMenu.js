@@ -20,7 +20,7 @@ export default function TopBarMenu( { handleMenu}) {
   return (
     <div className="TopBarMenu">
       <div className="row custom-container">
-        <div className="col-3">
+        <div className="col-md-3 col-sm-10 col-xs-10">
           <img className="logo" src={logo}></img>
         </div>
         <div className="col middle-menu">

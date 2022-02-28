@@ -4,6 +4,7 @@
   background-color: aqua;
   position: absolute;
   z-index: 1;
+  transition: width 2s ;
 }
 
 @media screen and (min-width: 760px){

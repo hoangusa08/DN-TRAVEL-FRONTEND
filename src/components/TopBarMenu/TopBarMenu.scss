@@ -23,7 +23,7 @@
   }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 1024px) {
   .TopBarMenu {
     .custom-container {
       .middle-menu {
@@ -58,4 +58,13 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .TopBarMenu {
+    .custom-container {
+      margin: unset;
+    }
+  }
+
 }
