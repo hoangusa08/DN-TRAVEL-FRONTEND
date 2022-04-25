@@ -7,7 +7,7 @@ const image = "https://vietnam.travel/sites/default/files/styles/top_banner/publ
 export default function CardTour() {
   return (
     <div>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card">
         <img
           className="card-img-top"
           src= {image}

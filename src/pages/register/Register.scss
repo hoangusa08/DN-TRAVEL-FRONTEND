@@ -2,6 +2,7 @@
   background: url("../../assets/image/register.jpg") no-repeat center;
   height: 100vh;
   overflow: auto;
+  background-size: 100%;
   &-ctn {
   
     margin: 10% 20% 0;
@@ -33,6 +34,9 @@
         color: white;
         opacity: 1; /* Firefox */
         font-size: 20px;
+      }
+      .rig-error{
+        color: red;
       }
     }
     button{

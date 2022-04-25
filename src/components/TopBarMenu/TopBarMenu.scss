@@ -1,8 +1,10 @@
 .TopBarMenu {
   background-color: white;
   color: black;
-  height: 50px;
-  // position: fixed;
+  height: 50px;position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
   .custom-container {
     margin: 0 100px 0;
     height: 100%;

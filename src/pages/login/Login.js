@@ -1,58 +1,86 @@
 import React, { useState } from "react";
-import Input from "./component/input/Input";
 import "./Login.scss";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/user";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Field, Form, Formik } from "formik";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
+
+const SignupSchema = Yup.object().shape({
+  userName: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  password: Yup.string()
+  .min(2, "Too Short!")
+  .max(50, "Too Long!")
+  .required("Required"),
+});
 
 export default function Login() {
   const dispatch = useDispatch();
-  const [dataLogin, setDataLogin] = useState({
-    email: "",
-    password: "",
-  });
-  const handleOnChangeInput = (data, type) => {
-    if (type === "password") {
-      setDataLogin({ ...dataLogin, password: data });
-    } else {
-      setDataLogin({ ...dataLogin, email: data });
-    }
-  };
   const sumitLogin = () => {
-    dispatch(login(dataLogin));
+    // dispatch(login(dataLogin));
   };
   return (
-    <div className="login">
-      <div className="login-ctn">
-        <div className="row custom">
-          <div className="col-6">
-            <div className="ctn-input">
-              <Input
-                placeholder="Email"
-                type="text"
-                icon={faUser}
-                handleOnChangeInput={handleOnChangeInput}
-                value={dataLogin.email}
-              />
-              <Input
-                placeholder="Password"
-                type="password"
-                icon={faKey}
-                handleOnChangeInput={handleOnChangeInput}
-                value={dataLogin.password}
-              />
-              <button onClick={sumitLogin}>Submit</button>
-              <div>
-                <span>Forgot password</span>
+    <Formik
+      initialValues={{
+        userName: "",
+        address: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+        fullName: ""
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={(values) => {
+        // same shape as initial values
+        console.log(values);
+      }}
+    >
+      {(formikProps) => {
+        const { values, errors, touched } = formikProps;
+        return (
+          <Form>
+            <div className="login">
+              <div className="login-ctn">
+                <div className="form-parent">
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    className="icon"
+                    color="while"
+                    size="lg"
+                  />
+                  <Field name="userName"  className="form-input" placeholder="Username"/>
+                  {errors.userName && touched.userName ? (
+                    <div className="rig-error">{errors.userName}</div>
+                  ) : null}
+                </div>
+                <div className="form-parent">
+                  <FontAwesomeIcon
+                    icon={faKey}
+                    className="icon"
+                    color="while"
+                    size="lg"
+                  />
+                   <Field name="password"  className="form-input" type="password" placeholder="password"/>
+                  {errors.password && touched.password ? (
+                    <div className="rig-error">{errors.password}</div>
+                  ) : null}
+                </div>
+                <button>Submit</button>
+                <div className="back-login">
+                  <span>Already have an account?</span>
+                  <Link to="/register">Register here</Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-6">
-            <img src="https://file3.qdnd.vn/data/images/0/2021/10/13/tuanson/6%201.jpg?dpi=150&quality=100&w=870" />
-          </div>
-        </div>
-      </div>
-    </div>
+          </Form>
+        );
+      }}
+    </Formik>
   );
 }

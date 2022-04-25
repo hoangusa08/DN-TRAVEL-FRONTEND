@@ -4,15 +4,24 @@ import { useSelector } from "react-redux";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register"
 import Home from "../pages/home/Home"
+import Tour from "../pages/tour/tour";
+import Error from "../pages/error/Error";
+import Account from "../pages/Account/Account";
 
 
 export const routeConfig = [
-  // {
-  //   path: "/home",
-  //   isPrivate: false,
-  //   exact: true,
-  //   component: Tour
-  // },
+  {
+    path: "/Account",
+    isPrivate: false,
+    exact: true,
+    component: Account
+  },
+  {
+    path: "/Tour",
+    isPrivate: false,
+    exact: true,
+    component: Tour
+  },
   {
     path: "/home",
     isPrivate: false,

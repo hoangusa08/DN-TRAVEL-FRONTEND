@@ -4,12 +4,12 @@ import logo from "../../assets/image/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   solid,
-  regular,
-  brands,
 } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { Link } from "react-router-dom";
 
 export default function TopBarMenu( { handleMenu}) {
 
+  const [isLogin, setIsLogin] = useState(true)
   // const [showMenuState, setShowMenuState] = useState(false);
 
   // const showMenu = () => {
@@ -26,10 +26,10 @@ export default function TopBarMenu( { handleMenu}) {
         <div className="col middle-menu">
           <div className="row">
             <div className="col">
-              <a>Trang Chu</a>
+              <Link to="/">Trang Chu</Link>
             </div>
             <div className="col">
-              <a>Tour</a>
+              <Link to="/Tour">Tour</Link>
             </div>
             <div className="col">
               <a>Blog</a>
@@ -44,8 +44,17 @@ export default function TopBarMenu( { handleMenu}) {
         </div>
         <div className="col-3 middle-menu">
           <div className="row">
-            <div className="col">đăng nhập</div>
-            <div className="col">đăng kí</div>
+            {
+              !isLogin ? (
+                <>
+                <div className="col"> <Link to="/login">đăng nhập</Link></div>
+            <div className="col"><Link to="/register">đăng kí</Link></div>
+                </>
+              ):(
+                <div className="col"><Link to="/account">My Account</Link></div>
+              )
+            }
+            
           </div>
         </div>
         <div className="button-menu">

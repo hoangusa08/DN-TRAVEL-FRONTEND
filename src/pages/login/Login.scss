@@ -1,18 +1,64 @@
-.login{
-  background-color: rgb(216, 195, 195);
-  &-ctn{
-    border-radius: 1px solid black;
-    height: 80%;
-    padding: 5%;
-    background-color: white;
-    .custom{
-      background-color: whitesmoke;
-      box-shadow: 5px 5px 5px rgb(163, 163, 152);
-      img{
-        width: 100%;
+
+.login {
+  background: url("../../assets/image/register.jpg") no-repeat center;
+  height: 100vh;
+  overflow: auto;
+  background-size: 100%;
+  &-ctn {
+  
+    margin: 10% 20% 0;
+    overflow: auto;
+    display: block;
+   text-align: center;
+    .form-parent {
+      position: relative;
+      margin-top: 5px;
+      .form-input {
+        width: 95%;
+        height: 50px;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 20px;
+        text-align: center;
+        outline-color :white;
       }
-      .ctn-input{
-        margin: 20%;
+      .icon {
+        color: white;
+        margin: 5px;
+        padding: 10px;
+        min-width: 40px;
+        position: absolute;
+      }
+      ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1; /* Firefox */
+        font-size: 20px;
+      }
+      .rig-error{
+        color: red;
+      }
+    }
+    button{
+      color: white;
+      background: none;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid white;
+      padding: 5px 15px;
+    }
+    button:hover{
+      background-color: white;
+      color: black;
+    }
+    .back-login{
+      margin-top: 10px;
+      span{
+        color: white;
+      }
+      a{
+        color: orange;
       }
     }
   }

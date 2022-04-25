@@ -1,0 +1,15 @@
+.userNavigation{
+  background-color: white;
+  width: 40%;
+  color: #555863;
+  max-width: 400px;
+  &-item{
+    padding: 15px;
+    border-bottom: 1px solid black;
+    width: 90%;
+  }
+  .active{
+    color: #26bed6;
+    border-bottom: 1px solid #26bed6;
+  }
+}

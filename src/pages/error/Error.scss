@@ -1,0 +1,17 @@
+.error{
+  background: url(../../assets/image/error.jpg) no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  align-items: center;
+  &-ctn{
+    background-color: aliceblue;
+    opacity: 0.7;
+    width: 700px;
+    height: 450px;
+    display: block;
+    animation: popin .3s;
+    margin: auto;
+    top: 10px;
+    position: absolute;
+  }
+}
