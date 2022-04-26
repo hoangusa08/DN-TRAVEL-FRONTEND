@@ -64,7 +64,7 @@ export default function Slider() {
             key={obj.id}
           >
             <img
-              src={process.env.PUBLIC_URL + `/image/image${index + 1}.jpg`}
+              src={process.env.PUBLIC_URL + `/image/image${index + 1}.jpg`} alt=""
             />
           </div>
         );

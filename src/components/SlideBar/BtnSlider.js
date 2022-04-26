@@ -5,10 +5,12 @@ import "./Slider.scss";
 
 export default function BtnSlider({ ...props }) {
   const { moveSlide, direction } = props;
-  const classHtml = "btn-slide"+ " "+ direction;
+  const classHtml = `btn-slide ${direction}`;
   return (
     <button onClick={moveSlide} className={classHtml}>
-      <FontAwesomeIcon icon={direction === "next" ? faAngleRight : faAngleLeft} />
+      <FontAwesomeIcon
+        icon={direction === "next" ? faAngleRight : faAngleLeft}
+      />
     </button>
   );
 }

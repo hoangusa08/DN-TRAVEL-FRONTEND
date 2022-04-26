@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function TopBarMenu( { handleMenu}) {
 
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin] = useState(true)
   // const [showMenuState, setShowMenuState] = useState(false);
 
   // const showMenu = () => {
@@ -21,7 +21,7 @@ export default function TopBarMenu( { handleMenu}) {
     <div className="TopBarMenu">
       <div className="row custom-container">
         <div className="col-md-3 col-sm-10 col-xs-10">
-          <img className="logo" src={logo}></img>
+          <img className="logo" src={logo} alt=""></img>
         </div>
         <div className="col middle-menu">
           <div className="row">
@@ -32,13 +32,13 @@ export default function TopBarMenu( { handleMenu}) {
               <Link to="/Tour">Tour</Link>
             </div>
             <div className="col">
-              <a>Blog</a>
+              <a href="a">Blog</a>
             </div>
             <div className="col">
-              <a>Ban Do</a>
+              <a  href="a">Ban Do</a>
             </div>
             <div className="col">
-              <a>Lien He</a>
+              <a  href="a">Lien He</a>
             </div>
           </div>
         </div>

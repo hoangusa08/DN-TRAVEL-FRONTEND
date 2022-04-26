@@ -42,7 +42,6 @@ export default function Pagination() {
         pageClassName="page-number"
         pageLinkClassName="page-link"
         itemClass="page-item"
-        nextClassName="next-page"
         nextLinkClassName=""
         previousClassName="previous-page"
         previousLinkClassName="previous-link"

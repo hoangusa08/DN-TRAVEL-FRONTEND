@@ -11,7 +11,7 @@ export default function CardTour() {
         <img
           className="card-img-top"
           src= {image}
-          alt="Card image cap"
+          alt="Card cap"
         ></img>
         <div className="card-body">
           <h5 className="card-title">TOUR XE JEEP SƠN TRÀ</h5>

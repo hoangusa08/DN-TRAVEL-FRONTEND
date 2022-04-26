@@ -6,7 +6,7 @@ export default function UserNavigation() {
     <div className="userNavigation">
       <div className="" >
         <div>
-          <img src="https://img.vn/uploads/danhmuc/phuoc-dong-1564026880-c6z5u.jpg"></img>
+          <img src="https://img.vn/uploads/danhmuc/phuoc-dong-1564026880-c6z5u.jpg" alt="="></img>
         </div>
         <span>hoangksh99</span>
       </div>

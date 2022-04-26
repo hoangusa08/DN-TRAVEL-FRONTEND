@@ -6,7 +6,7 @@ export default function CardTourDetail() {
   return (
     <div className="card-tour-detail row">
       <div className="ctn-img col-3 ">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"></img>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="tour"></img>
       </div>
       <div className="ctn-detail col">
         <div>

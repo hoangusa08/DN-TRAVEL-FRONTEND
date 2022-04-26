@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Login.scss";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { login } from "../../store/user";
+// import { login } from "../../store/user";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Field, Form, Formik } from "formik";
 import { Link } from "react-router-dom";
