@@ -7,6 +7,7 @@ import Home from "../pages/home/Home"
 import Tour from "../pages/tour/tour";
 import Error from "../pages/error/Error";
 import Account from "../pages/Account/Account";
+import TourDetail from "../pages/tourDetail/tourDetail";
 
 
 export const routeConfig = [
@@ -15,6 +16,12 @@ export const routeConfig = [
     isPrivate: false,
     exact: true,
     component: Account
+  },
+  {
+    path: "/TourDetail",
+    isPrivate: false,
+    exact: true,
+    component: TourDetail
   },
   {
     path: "/Tour",

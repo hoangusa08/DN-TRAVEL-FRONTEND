@@ -5,13 +5,13 @@ import "./CardTourDetail.scss";
 export default function CardTourDetail() {
   return (
     <div className="card-tour-detail row">
-      <div className="ctn-img col-3">
+      <div className="ctn-img col-3 ">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"></img>
       </div>
       <div className="ctn-detail col">
         <div>
           <StarRatings
-            starRatedColor="yellow"
+            starRatedColor="#f79321"
             numberOfStars={5}
             rating={3.5}
             starDimension="20px"

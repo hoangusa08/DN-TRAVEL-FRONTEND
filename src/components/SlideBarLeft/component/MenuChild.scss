@@ -1,0 +1,23 @@
+.menuChild{
+  border: 1px solid #D9D9DE;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  &--title{
+    border-bottom: 1px solid #D9D9DE;
+    padding: 10px;
+    align-items: center;
+    color: #555863;
+    background-color: #e4e4ea;
+  }
+  &--item{
+    padding: 10px;
+    color: #555863;
+    &:hover{
+      background-color: #e4f0fa;
+    }
+  }
+  .active{
+    background-color: #e4f0fa;
+    color: #00c1de;
+  }
+}

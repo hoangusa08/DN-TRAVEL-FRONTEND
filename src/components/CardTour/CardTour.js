@@ -18,7 +18,7 @@ export default function CardTour() {
           <p className="card-text">Tour Ghep</p>
           <p>500000 VND</p>
           <StarRating
-            starRatedColor="yellow"
+            starRatedColor="#f79321"
             numberOfStars={5}
             rating={3.5}
             starDimension="20px"
