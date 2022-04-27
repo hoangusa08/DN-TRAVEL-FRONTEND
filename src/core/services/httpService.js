@@ -3,9 +3,7 @@ import queryString from "query-string";
 import { getToken } from "../localStore";
 
 const http = axios.create({
-  // eslint-disable-next-line no-undef
   baseURL: process.env.REACT_APP_API_URL,
-  // baseURL: "http://localhost:24318",
   headers: {
     "Content-Type": "application/json"
   },

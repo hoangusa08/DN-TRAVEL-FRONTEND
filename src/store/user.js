@@ -28,7 +28,7 @@ const slice = createSlice({
         localStorage.removeItem("rememberMe");
       }
       if (!payload?.user?.isEnable) {
-        window.location.href = "/verify-email";
+        window.location.href = "/";
         return;
       }
       if (payload?.user?.roles[0] === USER_ROLE.DEVELOP) {
@@ -39,14 +39,13 @@ const slice = createSlice({
           window.location.href = "/profile-creation";
         }
       } else {
-        // window.location.href = "/manage-projects";
         window.location.href = "/general-information";
       }
     },
     logoutSuccess: (state) => {
       state.user = null;
       removeUserLocal();
-      window.location.href = "/login";
+      window.location.href = "/";
     },
     setLoading: (state, action) => {
       const { payload } = action;
@@ -64,7 +63,7 @@ const { loginSuccess, logoutSuccess, setLoading } = slice.actions;
 export const login = (values) => async (dispatch) => {
   try {
     dispatch(setLoading({ loading: true }));
-    const data  = await http.post("/authen/login", {
+    const data  = await http.post("/authen/login/customer", {
       email: values.email,
       password: values.password
     });
@@ -79,15 +78,15 @@ export const login = (values) => async (dispatch) => {
     };
 
     dispatch(setLoading({ loading: false }));
+    console.log('---hoang---', data?.user?.role);
     if (!token) {
       pushToast("error", data?.message);
-    } else if (data?.user?.roles[0] === USER_ROLE.ADMIN) {
+    } else if (data?.user?.role !== USER_ROLE.CUSTOMER) {
       pushToast("error", ERRORS.ACCOUNT_PERMISSION);
     } else {
       dispatch(loginSuccess({ user, token, rememberMe }));
     }
   } catch (e) {
-    // console.log(e.message);
     dispatch(setLoading({ loading: false }));
     pushToast("error", e.message);
     if (e.message === "Please confirm token!") {

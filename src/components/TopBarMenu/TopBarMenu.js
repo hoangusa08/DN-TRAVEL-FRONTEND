@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TopBarMenu.scss";
 import logo from "../../assets/image/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  solid,
-} from "@fortawesome/fontawesome-svg-core/import.macro";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { Link } from "react-router-dom";
+import { getUser } from "../../core/localStore";
+import AvatarDefauld from "../../assets/image/avatar-default-white.png";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { logout } from "../../store/user";
+import { useDispatch } from "react-redux";
 
-export default function TopBarMenu( { handleMenu}) {
+export default function TopBarMenu({ handleMenu }) {
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState("");
+  const [dropDown, setDropDown] = useState(false);
+  const dispatch = useDispatch();
 
-  const [isLogin] = useState(true)
+  useEffect(() => {
+    const temp = getUser();
+    if (temp) {
+      setUser(temp?.fullname);
+      setIsLogin(true);
+    }
+  }, []);
+
+  const onLogOut = () => {
+    dispatch(logout());
+  };
+
   // const [showMenuState, setShowMenuState] = useState(false);
 
   // const showMenu = () => {
@@ -35,30 +53,53 @@ export default function TopBarMenu( { handleMenu}) {
               <a href="a">Blog</a>
             </div>
             <div className="col">
-              <a  href="a">Ban Do</a>
+              <a href="a">Ban Do</a>
             </div>
             <div className="col">
-              <a  href="a">Lien He</a>
+              <a href="a">Lien He</a>
             </div>
           </div>
         </div>
         <div className="col-3 middle-menu">
           <div className="row">
-            {
-              !isLogin ? (
-                <>
-                <div className="col"> <Link to="/login">đăng nhập</Link></div>
-            <div className="col"><Link to="/register">đăng kí</Link></div>
-                </>
-              ):(
-                <div className="col"><Link to="/account">My Account</Link></div>
-              )
-            }
-            
+            {!isLogin ? (
+              <>
+                <div className="col">
+                  {" "}
+                  <Link to="/login">đăng nhập</Link>
+                </div>
+                <div className="col">
+                  <Link to="/register">đăng kí</Link>
+                </div>
+              </>
+            ) : (
+              <div className="col user">
+                <img src={AvatarDefauld} alt="" className="avatar" />
+                <div className="name" onClick={() => setDropDown(!dropDown)}>
+                  {user}{" "}
+                  <i>
+                    <FontAwesomeIcon icon={faAngleDown} />
+                  </i>
+                </div>
+                {dropDown ? (
+                  <div className="dropDown">
+                    <div className="item">
+                      <Link to="/Account">My Account</Link>
+                    </div>
+                    <div className="item"> doan 1</div>
+                    <div className="item" onClick={() => onLogOut()}>
+                      Log Out
+                    </div>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
+            )}
           </div>
         </div>
         <div className="button-menu">
-          <button className="button-child" onClick={handleMenu} >
+          <button className="button-child" onClick={handleMenu}>
             <FontAwesomeIcon icon={solid("bars")} />
           </button>
         </div>

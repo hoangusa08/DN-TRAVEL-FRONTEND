@@ -136,6 +136,10 @@ export default function Register() {
                   <span>Already have an account?</span>
                   <Link to="/login">Login here</Link>
                 </div>
+                <div className="back-login">
+                  <span>back to home?</span>
+                  <Link to="/">In here</Link>
+                </div>
               </div>
             </div>
           </Form>
