@@ -1,0 +1,17 @@
+.why-travel{
+  // background-color: black;
+  margin: 10px 200px 0;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  &-content{
+    display: flex;
+    .tick{
+      height: 50px;
+    }
+    .content{
+      padding-top: 12px;
+      color: #1a4484;
+    }
+  }
+}

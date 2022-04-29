@@ -20,4 +20,14 @@
     background-color: #e4f0fa;
     color: #00c1de;
   }
+  .seeMore{
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #00c1de;
+    margin-bottom: 5px;
+    &:hover{
+      color: #0a7687;
+    }
+  }
 }

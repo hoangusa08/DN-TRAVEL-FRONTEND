@@ -53,7 +53,7 @@ export default function Slider() {
           </div>
           <div className="search-bottom">
             <span>Tailor tour - Trải nghiệm theo cách riêng của bạn</span>
-            <button>Dat Tour</button>
+            <button>Dat Tour Rieng</button>
           </div>
         </div>
       </div>

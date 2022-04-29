@@ -35,7 +35,6 @@ export default function Login() {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
-          console.log(values);
           dispatch(login(values));
         }}
       >

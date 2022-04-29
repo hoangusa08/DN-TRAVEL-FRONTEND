@@ -31,16 +31,6 @@ const slice = createSlice({
         window.location.href = "/";
         return;
       }
-      if (payload?.user?.roles[0] === USER_ROLE.DEVELOP) {
-        console.log(payload?.user?.isProfileCreated);
-        if (payload?.user?.isProfileCreated === true) {
-          window.location.href = "/my-projects";
-        } else {
-          window.location.href = "/profile-creation";
-        }
-      } else {
-        window.location.href = "/general-information";
-      }
     },
     logoutSuccess: (state) => {
       state.user = null;
@@ -68,9 +58,9 @@ export const login = (values) => async (dispatch) => {
       password: values.password
     });
     let user = {
-      ...data.user
+      ...data?.user
     };
-    const token = data.access_token || false;
+    const token = data?.access_token || false;
     const rememberMe = {
       isRemember: values.isRemember,
       email: values.email,
@@ -78,8 +68,8 @@ export const login = (values) => async (dispatch) => {
     };
 
     dispatch(setLoading({ loading: false }));
-    console.log('---hoang---', data?.user?.role);
     if (!token) {
+     
       pushToast("error", data?.message);
     } else if (data?.user?.role !== USER_ROLE.CUSTOMER) {
       pushToast("error", ERRORS.ACCOUNT_PERMISSION);
@@ -88,10 +78,7 @@ export const login = (values) => async (dispatch) => {
     }
   } catch (e) {
     dispatch(setLoading({ loading: false }));
-    pushToast("error", e.message);
-    if (e.message === "Please confirm token!") {
-      window.location.href = "/verify-email";
-    }
+    pushToast("error", "Something wrong");
     return console.error(e.message);
   }
 };

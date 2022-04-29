@@ -3,7 +3,7 @@ import "./TopBarMenu.scss";
 import logo from "../../assets/image/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getUser } from "../../core/localStore";
 import AvatarDefauld from "../../assets/image/avatar-default-white.png";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +15,7 @@ export default function TopBarMenu({ handleMenu }) {
   const [user, setUser] = useState("");
   const [dropDown, setDropDown] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     const temp = getUser();
@@ -36,7 +37,7 @@ export default function TopBarMenu({ handleMenu }) {
   // }
 
   return (
-    <div className="TopBarMenu">
+    <div className="TopBarMenu" onClick={() => setDropDown(false)}>
       <div className="row custom-container">
         <div className="col-md-3 col-sm-10 col-xs-10">
           <img className="logo" src={logo} alt=""></img>
@@ -75,7 +76,13 @@ export default function TopBarMenu({ handleMenu }) {
             ) : (
               <div className="col user">
                 <img src={AvatarDefauld} alt="" className="avatar" />
-                <div className="name" onClick={() => setDropDown(!dropDown)}>
+                <div
+                  className="name"
+                  onClick={(e) => {
+                    setDropDown(!dropDown);
+                    e.stopPropagation();
+                  }}
+                >
                   {user}{" "}
                   <i>
                     <FontAwesomeIcon icon={faAngleDown} />
@@ -83,9 +90,7 @@ export default function TopBarMenu({ handleMenu }) {
                 </div>
                 {dropDown ? (
                   <div className="dropDown">
-                    <div className="item">
-                      <Link to="/Account">My Account</Link>
-                    </div>
+                    <div className="item" onClick={()=> history.push("/Account")}>My Account</div>
                     <div className="item"> doan 1</div>
                     <div className="item" onClick={() => onLogOut()}>
                       Log Out

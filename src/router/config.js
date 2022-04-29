@@ -13,7 +13,7 @@ import TourDetail from "../pages/tourDetail/tourDetail";
 export const routeConfig = [
   {
     path: "/Account",
-    isPrivate: true,
+    isPrivate: false,
     exact: true,
     component: Account
   },

@@ -2,5 +2,5 @@ import React from "react";
 import "./Menu.scss";
 
 export default function Menu() {
-  return <div>Menu</div>;
+  return <div className="menu-tour">Menu</div>;
 }

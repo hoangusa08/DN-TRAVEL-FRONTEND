@@ -23,6 +23,9 @@
         .name {
           padding-top: 12px;
           cursor: pointer;
+          &:hover{
+            color: #0d6efd;
+          }
         }
         .dropDown {
           perspective: 1000px;
@@ -41,10 +44,13 @@
             padding: 10px;
             border-bottom: 1px solid #d9d9de;
             color: #0d6efd;
+            a{
+              color: unset;
+            }
             &:hover {
               background-color: #f79321;
               opacity: 1;
-              color: white;
+              color: white !important;
             }
             a{
               text-decoration: none;
