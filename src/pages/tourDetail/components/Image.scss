@@ -1,0 +1,25 @@
+.image {
+  &-view {
+    img {
+      width: 100%;
+      max-height: 400px;
+    }
+  }
+  &-menu-bottom {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    margin-top: 2px;
+    img {
+      width: 25%;
+      border: 1px solid rgb(0 0 0 / 15%);
+      animation-duration: 2s;
+      &:hover {
+        width: 40%;
+        animation-name: bounce;
+        animation-timing-function: ease;
+      }
+      // margin-right: 5px;
+    }
+  }
+}
