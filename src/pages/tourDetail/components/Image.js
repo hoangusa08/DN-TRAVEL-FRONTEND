@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Image.scss";
-const src = "https://cdn2.ivivu.com/2020/07/14/14/ivivu-phu-quoc-bia-750x390.gif";
-const src2 = "https://cdn2.ivivu.com/2019/10/14/18/ivivu-lan-ngam-san-ho1.jpg";
+
 export default function Image() {
+
+  const [imgDefault, setImgDefault] = useState("https://cdn2.ivivu.com/2020/07/14/14/ivivu-phu-quoc-bia-750x390.gif");
+  const [srcImgs] = useState([
+    "https://cdn2.ivivu.com/2020/07/14/14/ivivu-phu-quoc-bia-750x390.gif",
+    "https://cdn2.ivivu.com/2019/10/14/18/ivivu-lan-ngam-san-ho1.jpg",
+    "https://expatsholidays.com/wp-content/uploads/2018/07/Beach.jpeg",
+    "https://cdn1.ivivu.com/iVivu/2019/06/13/19/3-cr-800x450.png",
+  ])
+
+  const handleImg = (index) => {
+    setImgDefault(srcImgs[index]);
+  }
+
   return <div className="image">
     <div className="image-view">
-      <img src={src} alt=""/>
+      <img src={imgDefault} alt=""/>
     </div>
     <div className="image-menu-bottom">
-      <img src={src} alt=""></img>
-      <img src={src2} alt=""></img>
-      <img src={src} alt=""></img>
-      <img src={src2} alt=""></img>
+      {
+        srcImgs.map((img, index) => (
+          <img src={img} alt="" onClick={()=> handleImg(index)} key={index}></img>
+        ))
+      }
     </div>
   </div>;
 }

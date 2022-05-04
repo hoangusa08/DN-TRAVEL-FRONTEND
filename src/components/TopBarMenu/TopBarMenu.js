@@ -66,7 +66,6 @@ export default function TopBarMenu({ handleMenu }) {
             {!isLogin ? (
               <>
                 <div className="col">
-                  {" "}
                   <Link to="/login">đăng nhập</Link>
                 </div>
                 <div className="col">

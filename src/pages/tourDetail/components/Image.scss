@@ -3,6 +3,10 @@
     img {
       width: 100%;
       max-height: 400px;
+      // &:hover {
+      //   transition: 0.5s;
+      //   transform: scale(1.05 , 1);
+      // }
     }
   }
   &-menu-bottom {
@@ -10,16 +14,14 @@
     height: 100px;
     justify-content: center;
     margin-top: 2px;
+    position: relative;
     img {
       width: 25%;
       border: 1px solid rgb(0 0 0 / 15%);
-      animation-duration: 2s;
       &:hover {
-        width: 40%;
-        animation-name: bounce;
-        animation-timing-function: ease;
+        transition: 0.5s;
+        transform: scale(1.2);
       }
-      // margin-right: 5px;
     }
   }
 }
