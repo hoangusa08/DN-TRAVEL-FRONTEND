@@ -22,7 +22,7 @@ export default function CardTour() {
           starRatedColor="#f79321"
           numberOfStars={5}
           rating={3.5}
-          starDimension="20px"
+          starDimension="15px"
         />
         {3.5}
       </div>
