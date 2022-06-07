@@ -7,6 +7,8 @@
     padding: 15px;
     border-bottom: 1px solid black;
     width: 90%;
+    font-size: 18px;
+    font-weight: 500;
     &:hover{
     cursor: pointer;
     }
@@ -14,5 +16,24 @@
   .active{
     color: #26bed6;
     border-bottom: 1px solid #26bed6;
+  }
+  .top{
+    align-items: center;
+    .img-ctn{
+      img{
+
+      width: 100%;
+      }
+    }
+    .changeImg{
+      margin-left: 40%;
+      border: none;
+      background-color: antiquewhite;
+      padding: 0 10px;
+      color: rgb(54, 49, 49);
+      &:hover{
+        cursor: pointer;
+      }
+    }
   }
 }

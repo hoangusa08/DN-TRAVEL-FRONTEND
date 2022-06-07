@@ -1,0 +1,33 @@
+.tour-future-ctn {
+  margin: 50px 100px;
+  background-color: #f9fbfc;
+  display: flex;
+  justify-content: space-between;
+  flex: 1 auto;
+  .account-formik {
+    width: 100%;
+    
+    .item-ctn {
+      padding: 10px;
+      .item {
+        margin-bottom: 10px;
+        .form-input{
+          width: 100%;
+          height: 40px;
+          border-radius: 5px;
+        }
+      }
+      .edit-account{
+        margin-top: 10px;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #0d66c5;
+        color: white;
+      }
+      .rig-error{
+        color: red;
+      }
+    }
+  }
+}

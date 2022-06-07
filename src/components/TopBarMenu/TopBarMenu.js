@@ -51,9 +51,6 @@ export default function TopBarMenu({ handleMenu }) {
               <Link to="/Tour">Tour</Link>
             </div>
             <div className="col">
-              <a href="a">Blog</a>
-            </div>
-            <div className="col">
               <a href="a">Ban Do</a>
             </div>
             <div className="col">

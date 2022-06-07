@@ -11,6 +11,7 @@ import TourDetail from "../pages/tourDetail/tourDetail";
 import TourFuture from "../pages/Account/tourFuture/TourFuture"
 import TourHistory from "../pages/Account/tourHistory/TourHistory"
 import ChangePass from "../pages/Account/ChangePass/ChangePass"
+import RateTour from "../pages/Account/rateTour/RateTour";
 
 
 export const routeConfig = [
@@ -33,10 +34,16 @@ export const routeConfig = [
     component: TourHistory
   },
   {
+    path: "/rateTour",
+    isPrivate: false,
+    exact: true,
+    component: RateTour,
+  },
+  {
     path: "/changePass",
     isPrivate: false,
     exact: true,
-    component: TourHistory
+    component: ChangePass
   },
   {
     path: "/TourDetail",

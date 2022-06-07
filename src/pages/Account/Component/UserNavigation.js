@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getUser } from "../../../core/localStore";
 import "./UserNavigation.scss";
+import avatarDefault from "../../../assets/image/avatar-default-white.png";
 
 export default function UserNavigation() {
   const [user] = useState(getUser());
@@ -18,13 +19,14 @@ export default function UserNavigation() {
   };
   return (
     <div className="userNavigation">
-      <div className="">
-        <div>
+      <div className="top">
+        <div className="img-ctn">
           <img
-            src="https://img.vn/uploads/danhmuc/phuoc-dong-1564026880-c6z5u.jpg"
+            src={avatarDefault}
             alt="user"
           ></img>
         </div>
+        <button className="changeImg">Doi Anh</button>
       </div>
       <div
         className={
