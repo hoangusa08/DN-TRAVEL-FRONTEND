@@ -4,7 +4,6 @@ import UserNavigation from "../Component/UserNavigation";
 import "./ChangePass.scss";
 import * as Yup from "yup";
 import { Field, Form, Formik } from "formik";
-import { Button } from "react-bootstrap";
 
 const SignupSchema = Yup.object().shape({
   oldPassword: Yup.string()

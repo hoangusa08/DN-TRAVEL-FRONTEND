@@ -8,6 +8,8 @@ export default function Home() {
     <MainLayout>
       <WhyTracel/>
       <SuggestionsHome/>
+      <SuggestionsHome/>
+      <SuggestionsHome/>
     </MainLayout>
   );
 }
