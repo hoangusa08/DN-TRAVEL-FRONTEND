@@ -3,8 +3,6 @@ import { setUserLocal, removeUserLocal } from "../core/localStore";
 import { pushToast } from "../components/Toast";
 import http from "../core/services/httpService";
 import { USER_ROLE, ERRORS } from "../core/constants";
-// import { useHistory } from "react-router";
-// Slice
 
 const initialUser = localStorage.getItem("user")
   ? JSON.parse(localStorage.getItem("user"))

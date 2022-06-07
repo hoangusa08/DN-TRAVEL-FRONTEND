@@ -17,7 +17,9 @@ export default function Payment() {
         onChange={(event) => changeFruit(event.target.value)}
         value={startDay}
       >
-        <option value="" disabled selected>Select your option</option>
+        <option value="" disabled selected>
+          Select your option
+        </option>
         <option value="oranges">Outrageous Oranges</option>
         <option value="tomatoes">Technically a Fruit Tomatoes</option>
         <option value="bananas">Bodacious Bananas</option>
@@ -32,6 +34,7 @@ export default function Payment() {
       <div className="function">
         <button className="concat">Lien He Tu Van</button>
         <button className="order">Dat tour</button>
+      
       </div>
     </div>
   );

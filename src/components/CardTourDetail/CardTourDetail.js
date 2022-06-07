@@ -1,10 +1,12 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import "./CardTourDetail.scss";
 
-export default function CardTourDetail() {
+export default function CardTourDetail({ tour }) {
   const history = useHistory();
+  console.log("tour", tour);
 
   const goToTorDetail = () => {
     history.push("/TourDetail");
@@ -12,37 +14,33 @@ export default function CardTourDetail() {
   return (
     <div className="card-tour-detail row" onClick={() => goToTorDetail()}>
       <div className="ctn-img col-3 ">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
-          alt="tour"
-        ></img>
+        <img src={tour.tourImage} alt="tourImage"></img>
       </div>
       <div className="ctn-detail col">
-        <div>
+        <div className="star-ctn">
           <StarRatings
             starRatedColor="#f79321"
             numberOfStars={5}
-            rating={3.5}
+            rating={tour.star}
             starDimension="20px"
           />
-          {3.5}
+          <h6 className="mota">/{tour.star}</h6>
         </div>
         <div>
-          <span>TOUR DU LỊCH TRƯỢT THÁC HÒA PHÚ THÀNH 1 NGÀY</span>
+          <span>{tour.name}</span>
         </div>
         <div>
           <span>
-            Tour du lịch Trượt thác Hòa Phú Thành 1 ngày Trượt thác Hòa Phú
-            Thành – dành cho những bạn trẻ tuổi đam
+           {tour.description}
           </span>
         </div>
       </div>
       <div className="ctn-price col-3">
         <div>
-          <span>650000</span>
+          <span>{tour.adultPrice}</span>
         </div>
         <div>
-          <button>chi tiet</button>
+          <Button className="chitiet">chi tiet</Button>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useLayoutEffect, useState } from "react";
 import "./TopBarMenu.scss";
 import logo from "../../assets/image/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,7 @@ export default function TopBarMenu({ handleMenu }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const temp = getUser();
     if (temp) {
       setUser(temp?.fullname);

@@ -8,14 +8,35 @@ import Tour from "../pages/tour/tour";
 import Error from "../pages/error/Error";
 import Account from "../pages/Account/Account";
 import TourDetail from "../pages/tourDetail/tourDetail";
+import TourFuture from "../pages/Account/tourFuture/TourFuture"
+import TourHistory from "../pages/Account/tourHistory/TourHistory"
+import ChangePass from "../pages/Account/ChangePass/ChangePass"
 
 
 export const routeConfig = [
   {
-    path: "/Account",
+    path: "/account",
     isPrivate: false,
     exact: true,
     component: Account
+  },
+  {
+    path: "/tourFuture",
+    isPrivate: false,
+    exact: true,
+    component: TourFuture
+  },
+  {
+    path: "/tourHistory",
+    isPrivate: false,
+    exact: true,
+    component: TourHistory
+  },
+  {
+    path: "/changePass",
+    isPrivate: false,
+    exact: true,
+    component: TourHistory
   },
   {
     path: "/TourDetail",
