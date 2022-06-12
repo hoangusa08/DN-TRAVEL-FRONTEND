@@ -42,7 +42,6 @@ export default function Slider() {
               selected={startDate}
               className="fromInput"
               onChange={(date) => {
-                console.log(date);
                 setStartDate(date);
               }}
             />

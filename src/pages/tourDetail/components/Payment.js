@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Payment.scss";
 
-export default function Payment() {
+export default function Payment({ data }) {
   const [startDay, setStartDay] = useState("");
 
   const changeFruit = (newFruit) => {
@@ -25,8 +25,8 @@ export default function Payment() {
         <option value="bananas">Bodacious Bananas</option>
       </select>
 
-      <Item title="Nguoi Lon"></Item>
-      <Item title="Tre Em"></Item>
+      <Item title="Nguoi Lon" price={data?.adultPrice}></Item>
+      <Item title="Tre Em" price={data?.childPrice}></Item>
       <div className="total">
         <span className="total--title"> Tong Cong :</span>
         <span className="total--price"> 8700000&nbsp; VND</span>
@@ -34,17 +34,16 @@ export default function Payment() {
       <div className="function">
         <button className="concat">Lien He Tu Van</button>
         <button className="order">Dat tour</button>
-      
       </div>
     </div>
   );
 }
 
-function Item({ title }) {
+function Item({ title, price }) {
   return (
     <div className="box-white">
       <span className="box-white-title">{title}</span>
-      <span className="price">x2000000</span>
+      <span className="price">x{price}</span>
       <button className="sum">+</button>
       <span className="total">2</span>
       <button className="sub">-</button>

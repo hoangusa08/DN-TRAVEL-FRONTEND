@@ -1,4 +1,12 @@
 .function{
   display: flex;
   margin-bottom: 10px;
+  .function-input{
+    width: 95%;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 0.5px solid #1455aa;
+    outline: none;
+    color: #1455aa;
+  }
 }

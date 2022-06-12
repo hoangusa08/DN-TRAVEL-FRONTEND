@@ -46,7 +46,7 @@ export const routeConfig = [
     component: ChangePass
   },
   {
-    path: "/TourDetail",
+    path: "/TourDetail/:id",
     isPrivate: false,
     exact: true,
     component: TourDetail

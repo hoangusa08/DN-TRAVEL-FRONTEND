@@ -18,7 +18,6 @@ const slice = createSlice({
     loginSuccess: (state, action) => {
       const { payload } = action;
       state.user = payload?.user;
-      console.log(payload?.user);
       setUserLocal(payload?.token, payload?.user);
       if (payload?.rememberMe?.isRemember) {
         localStorage.setItem("rememberMe", JSON.stringify(payload?.rememberMe));

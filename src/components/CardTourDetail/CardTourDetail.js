@@ -6,14 +6,12 @@ import "./CardTourDetail.scss";
 
 export default function CardTourDetail({ tour }) {
   const history = useHistory();
-  console.log("tour", tour);
-
-  const goToTorDetail = () => {
-    history.push("/TourDetail");
+  const goToTorDetail = (id) => {
+    history.push(`/TourDetail/${id}`);
   };
   return (
-    <div className="card-tour-detail row" onClick={() => goToTorDetail()}>
-      <div className="ctn-img col-3 ">
+    <div className="card-tour-detail row" onClick={() => goToTorDetail(tour?.id)}>
+      <div className="ctn-img col-4 ">
         <img src={tour.tourImage} alt="tourImage"></img>
       </div>
       <div className="ctn-detail col">
@@ -29,17 +27,17 @@ export default function CardTourDetail({ tour }) {
         <div>
           <span>{tour.name}</span>
         </div>
-        <div>
+        <div style={{paddingLeft: "10px"}}>
           <span>
-           {tour.description}
+           {tour.subDescription}
           </span>
         </div>
       </div>
-      <div className="ctn-price col-3">
-        <div>
-          <span>{tour.adultPrice}</span>
+      <div className="ctn-price col-2">
+        <div style={{marginTop:"30px", fontSize: "18px", fontWeight: 500}}>
+          <span>Giá: {tour.adultPrice}</span>
         </div>
-        <div>
+        <div >
           <Button className="chitiet">chi tiet</Button>
         </div>
       </div>

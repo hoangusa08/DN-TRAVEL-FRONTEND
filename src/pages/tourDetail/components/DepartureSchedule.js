@@ -1,43 +1,14 @@
 import React, { useState } from "react";
 import "./DepartureSchedule.scss";
-
 import DatePicker from "react-datepicker";
 
 const title = {
   start: "Ngày khởi hành",
   end: "Ngày về",
   status: "Tình trạng",
-  price: "Gia",
 };
 
-const content = [
-  {
-    start: "T5, 12/05/2022",
-    end: "T5, 12/05/2022",
-    status: "Lien He",
-    price: " 975.000 VND",
-  },
-  {
-    start: "T5, 12/05/2022",
-    end: "T5, 12/05/2022",
-    status: "Lien He",
-    price: " 975.000 VND",
-  },
-  {
-    start: "T5, 12/05/2022",
-    end: "T5, 12/05/2022",
-    status: "Lien He",
-    price: " 975.000 VND",
-  },
-  {
-    start: "T5, 12/05/2022",
-    end: "T5, 12/05/2022",
-    status: "Lien He",
-    price: " 975.000 VND",
-  },
-];
-
-export default function DepartureSchedule() {
+export default function DepartureSchedule({ data }) {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -51,17 +22,16 @@ export default function DepartureSchedule() {
             selected={startDate}
             className="fromInput"
             onChange={(date) => {
-              console.log(date);
               setStartDate(date);
             }}
           />
         </div>
       </div>
       <div className="departureSchedule-content">
-        <Item isTitle={true} content={title}></Item>
-        {content.map((con, index) => (
+        <Item isTitle={true} content={title} price={"Giá"}></Item>
+        {data?.schedules.map((con, index) => (
           <div key={index}>
-            <Item isTitle={false} content={con} />
+            <Item isTitle={false} content={con} price={data?.adultPrice} />
           </div>
         ))}
       </div>
@@ -69,23 +39,23 @@ export default function DepartureSchedule() {
   );
 }
 
-function Item({ isTitle, content }) {
+function Item({ isTitle, content, price }) {
   if (isTitle) {
     return (
       <div className="item-title">
         <div>{content.start}</div>
-        <div>{content.end}</div>
+        <div>{content?.end}</div>
         <div>{content.status}</div>
-        <div>{content.price}</div>
+        <div>{price}</div>
       </div>
     );
   }
   return (
     <div className="item-content">
-      <div>{content.start}</div>
-      <div>{content.end}</div>
-      <div>{content.status}</div>
-      <div>{content.price}</div>
+      <div>{content}</div>
+      <div>25-06-1999</div>
+      <div>Liên Hệ</div>
+      <div>{price}</div>
     </div>
   );
 }

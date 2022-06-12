@@ -6,7 +6,6 @@ import ReactStars from "react-rating-stars-component";
 
 export default function RateTour() {
   const ratingChanged = (newRating) => {
-    console.log(newRating);
   };
   return (
     <div>

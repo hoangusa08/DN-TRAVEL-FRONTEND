@@ -29,13 +29,6 @@ export default function TopBarMenu({ handleMenu }) {
     dispatch(logout());
   };
 
-  // const [showMenuState, setShowMenuState] = useState(false);
-
-  // const showMenu = () => {
-  //   setShowMenuState(!showMenuState);
-  //   console.log(showMenuState);
-  // }
-
   return (
     <div className="TopBarMenu" onClick={() => setDropDown(false)}>
       <div className="row custom-container">

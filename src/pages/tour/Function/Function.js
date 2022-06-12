@@ -1,17 +1,26 @@
-import React from "react";
+import { Button } from "react-bootstrap";
+import React, { useState } from "react";
 import "./Function.scss";
+import { getTours } from "../../../store/tours";
+import { useDispatch } from "react-redux";
 
 export default function Function() {
-  return <div className="function">
-    <div>
-      <input></input>
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+  const handleSumit = () => {
+    dispatch(getTours(0, search));
+  };
+  return (
+    <div className="function">
+      <input
+        placeholder="tên tour"
+        className="function-input"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      ></input>
+      <Button className="function-submit" onClick={() => handleSumit()}>
+        Search
+      </Button>
     </div>
-    <div>
-      <input></input>
-    </div>
-    <div>
-      <button>abc</button>
-      <button>abc</button>
-    </div>
-  </div>;
+  );
 }

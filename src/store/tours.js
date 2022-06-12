@@ -8,11 +8,12 @@ const slice = createSlice({
     tours: [],
     total: 0,
     page: 0,
+    search: "",
   },
   reducers: {
     getToursSuccess: (state, action) => {
       const { payload } = action;
-      return { ...state, ...payload?.data };
+      return { ...state, ...payload?.data, search: payload?.search };
     },
     setLoading: (state, action) => {
       const { payload } = action;
@@ -27,12 +28,12 @@ export default slice.reducer;
 
 const { getToursSuccess, setLoading } = slice.actions;
 
-export const getTours = (values) => async (dispatch) => {
+export const getTours = (page, search) => async (dispatch) => {
   try {
     dispatch(setLoading({ loading: true }));
-    const data = await http.get("tour");
+    const data = await http.get(`tour?page=${page}&keyword=${search}`);
 
-    dispatch(getToursSuccess(data));
+    dispatch(getToursSuccess({ ...data, search }));
   } catch (e) {
     dispatch(setLoading({ loading: false }));
     pushToast("error", "Something wrong");

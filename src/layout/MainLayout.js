@@ -9,7 +9,6 @@ export default function MainLayout(props) {
 
   const handleMenu = () => {
     setShowMeuMini(!showMeuMini);
-    console.log("hoang");
   };
   return (
     <div>

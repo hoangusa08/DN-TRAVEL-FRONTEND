@@ -1,41 +1,25 @@
 import "./Pagination.scss";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactPaginate from "react-paginate";
+import { useDispatch, useSelector } from "react-redux";
+import { getTours } from "../../store/tours";
 
 export default function Pagination() {
-  let itemsPerPage = 1;
-  const [currentItems, setCurrentItems] = useState(null);
-  const [pageCount, setPageCount] = useState(0);
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
-  const [itemOffset, setItemOffset] = useState(0);
+  const tours = useSelector((state) => state.tours);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    // Fetch items from another resources.
-    const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
-
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
+    dispatch(getTours(event.selected, tours.search));
   };
   return (
     <div className="pagination">
-     
       <ReactPaginate
         breakLabel="..."
-        nextLabel=">"
+        nextLabel="next >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="<"
+        pageCount={tours?.total}
+        previousLabel="< previous"
         renderOnZeroPageCount={null}
         className="pagination-items"
         nextClassName="page-"
@@ -47,20 +31,5 @@ export default function Pagination() {
         previousLinkClassName="previous-link"
       />
     </div>
-  );
-}
-
-const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
-function Items({ currentItems }) {
-  return (
-    <>
-      {currentItems &&
-        currentItems.map((item) => (
-          <div key={item}>
-            <h3>Item #{item}</h3>
-          </div>
-        ))}
-    </>
   );
 }

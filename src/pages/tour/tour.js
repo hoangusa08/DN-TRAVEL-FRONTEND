@@ -14,7 +14,7 @@ export default function Tour() {
   const tours = useSelector((state) => state.tours);
 
   React.useEffect(() => {
-    dispatch(getTours("abc"));
+    dispatch(getTours(0, ""));
   }, []);
 
   return (

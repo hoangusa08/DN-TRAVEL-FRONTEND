@@ -68,7 +68,7 @@ export default function Account() {
             className="form-account"
           >
             {(formikProps) => {
-              const { values, errors, touched } = formikProps;
+              const { errors, touched } = formikProps;
               return (
                 <Form>
                   <div className="account-formik">
