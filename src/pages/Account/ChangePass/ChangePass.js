@@ -4,6 +4,10 @@ import UserNavigation from "../Component/UserNavigation";
 import "./ChangePass.scss";
 import * as Yup from "yup";
 import { Field, Form, Formik } from "formik";
+import http from "../../../core/services/httpService";
+import { getUser } from "../../../core/localStore";
+import { pushToast } from "../../../components/Toast";
+import { useHistory } from "react-router-dom";
 
 const SignupSchema = Yup.object().shape({
   oldPassword: Yup.string()
@@ -21,32 +25,44 @@ const SignupSchema = Yup.object().shape({
 });
 
 export default function ChangePass() {
+  const user = getUser();
+  const history = useHistory();
   return (
     <div>
       <TopBarMenu />
       <div className="account-ctn">
         <UserNavigation />
-        <div style={{ width: "100%" , minHeight: "90vh"}}>
+        <div style={{ width: "100%", minHeight: "90vh" }}>
           <Formik
             initialValues={{
               oldPassword: "",
               newPassword: "",
-              repeatNewPassword: ""
+              repeatNewPassword: "",
             }}
             validationSchema={SignupSchema}
             enableReinitialize={true}
             onSubmit={(values) => {
-              console.log("---hoang---", values);
-              // if (isEdit) {
-              //   setisEdit(false);
-              // } else {
-              //   setisEdit(true);
-              // }
+              if (values.newPassword === values.repeatNewPassword) {
+                http
+                  .put(`/customer/change-password/${user?.id}`, {
+                    oldPassword: values.oldPassword,
+                    newPassword: values.newPassword,
+                  })
+                  .then((res) => {
+                    pushToast("success", res.message);
+                    history.push("/Account")
+                  })
+                  .catch((e) => {
+                    pushToast("error", e?.message);
+                  });
+              } else {
+                pushToast("error", "Repeat New Password incorrect");
+              }
             }}
             className="form-account"
           >
             {(formikProps) => {
-              const { values, errors, touched } = formikProps;
+              const { errors, touched } = formikProps;
               return (
                 <Form>
                   <div className="account-formik">
@@ -59,8 +75,8 @@ export default function ChangePass() {
                           placeholder="Old Password"
                           type="password"
                         />
-                        {errors.newPassword && touched.newPassword ? (
-                          <div className="rig-error">{errors.newPassword}</div>
+                        {errors.oldPassword && touched.oldPassword ? (
+                          <div className="rig-error">{errors.oldPassword}</div>
                         ) : null}
                       </div>
                       <div className="item">

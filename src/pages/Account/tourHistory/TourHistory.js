@@ -1,60 +1,64 @@
-import React from 'react'
-import { Table } from 'react-bootstrap'
+import React, { useEffect } from "react";
+import { Button, Table } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import TopBarMenu from '../../../components/TopBarMenu/TopBarMenu'
-import UserNavigation from '../Component/UserNavigation'
-import "./TourHistory.scss"
+import TopBarMenu from "../../../components/TopBarMenu/TopBarMenu";
+import { PAYMENT_STATUS } from "../../../core/constants";
+import useGetPaymentByStatus from "../../../hook/useGetPaymentByStatus";
+import UserNavigation from "../Component/UserNavigation";
+import "./TourHistory.scss";
 
 export default function TourHistory() {
-
+  const [datas, getPaymentByStatus] = useGetPaymentByStatus();
   const history = useHistory();
+  useEffect(() => {
+    getPaymentByStatus(PAYMENT_STATUS.COMPLETE);
+  }, []);
 
-  const handleRate = () => {
-    history.push("/rateTour")
-  }
   return (
     <div>
       <TopBarMenu />
       <div className="tour-history-ctn">
         <UserNavigation />
-        <div style={{ width: "100%", minHeight: "90vh", marginTop: "20px" , padding:"10px"}}>
+        <div
+          style={{
+            width: "100%",
+            minHeight: "90vh",
+            marginTop: "20px",
+            padding: "10px",
+          }}
+        >
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Stt</th>
                 <th>Tour</th>
                 <th>Nha Cung Cap</th>
-                <th>Tinh Trang</th>
+                <th>Ngay Khoi Hanh</th>
+                <th>Nguoi lon</th>
+                <th>Tre em</th>
+                <th>Tong tien</th>
                 <th>Danh gia</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td><button onClick={()=> handleRate()}>Danh Gia</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td><button>Danh Gia</button></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td >Larry the Bird</td>
-                <td>@twitter</td>
-                <td>Thornton</td>
-                <td><button>Danh Gia</button></td>
-              </tr>
+              {datas?.map((pay) => (
+                <tr key={pay.id}>
+                  <td>{pay.id}</td>
+                  <td>{pay.tourName}</td>
+                  <td>{pay.providerName}</td>
+                  <td>{pay.schedule}</td>
+                  <td>{pay.adultNumber}</td>
+                  <td>{pay.childrenNumber}</td>
+                  <td>{pay.total}</td>
+                  <td>
+                    <Button onClick={() => history.push(`/rateTour/${pay.tourId}`)}>Danh Gia</Button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </div>
       </div>
     </div>
-   
-  )
+  );
 }

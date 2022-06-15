@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getUser } from "../../../core/localStore";
+// import { getUser } from "../../../core/localStore";
 import "./UserNavigation.scss";
 import avatarDefault from "../../../assets/image/avatar-default-white.png";
 
 export default function UserNavigation() {
-  const [user] = useState(getUser());
+  // const [user] = useState(getUser());
   const [active, setActive] = useState("");
   const history = useHistory();
   const id = window.location.href.split("/");
@@ -27,6 +27,16 @@ export default function UserNavigation() {
           ></img>
         </div>
         <button className="changeImg">Doi Anh</button>
+      </div>
+      <div
+        className={
+          active === "tourWaiting"
+            ? "userNavigation-item active"
+            : "userNavigation-item "
+        }
+        onClick={() => handleClick("tourWaiting")}
+      >
+        Ki nghi dang cho xac nhan
       </div>
       <div
         className={

@@ -20,7 +20,7 @@ export default function TopBarMenu({ handleMenu }) {
   useLayoutEffect(() => {
     const temp = getUser();
     if (temp) {
-      setUser(temp?.fullname);
+      setUser(temp?.fullName);
       setIsLogin(true);
     }
   }, []);
@@ -72,15 +72,14 @@ export default function TopBarMenu({ handleMenu }) {
                     e.stopPropagation();
                   }}
                 >
-                  {user}{" "}
+                  {user}
                   <i>
                     <FontAwesomeIcon icon={faAngleDown} />
                   </i>
                 </div>
                 {dropDown ? (
                   <div className="dropDown">
-                    <div className="item" onClick={()=> history.push("/Account")}>My Account</div>
-                    <div className="item"> doan 1</div>
+                    <div className="item" onClick={()=> history.push("/account")}>My Account</div>
                     <div className="item" onClick={() => onLogOut()}>
                       Log Out
                     </div>

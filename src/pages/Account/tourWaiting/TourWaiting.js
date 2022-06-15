@@ -1,17 +1,21 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import TopBarMenu from "../../../components/TopBarMenu/TopBarMenu";
 import { PAYMENT_STATUS } from "../../../core/constants";
 import useGetPaymentByStatus from "../../../hook/useGetPaymentByStatus";
 import UserNavigation from "../Component/UserNavigation";
-import "./TourFuture.scss";
+import "./TourWaiting.scss";
 
-export default function TourFuture() {
+export default function TourWaiting() {
   const [datas, getPaymentByStatus] = useGetPaymentByStatus();
 
   useEffect(() => {
-    getPaymentByStatus(PAYMENT_STATUS.APPROVE);
+    getPaymentByStatus(PAYMENT_STATUS.WAITNG);
   }, []);
+
+  useEffect(() => {
+    console.log("---hoang---", datas);
+  }, [datas]);
 
   return (
     <div>

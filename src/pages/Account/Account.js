@@ -6,6 +6,8 @@ import UserNavigation from "./Component/UserNavigation";
 import * as Yup from "yup";
 import useGetCustomerDetail from "../../hook/useGetCustomerDetail";
 import { getUser } from "../../core/localStore";
+import http from "../../core/services/httpService";
+import { pushToast } from "../../components/Toast";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -40,12 +42,12 @@ const dataBasic = {
 };
 
 export default function Account() {
-  const [data, getCategories] = useGetCustomerDetail();
+  const [data, getUserDetail] = useGetCustomerDetail();
   const [isEdit, setisEdit] = React.useState(false);
   const user = getUser();
 
   React.useEffect(() => {
-    getCategories(user?.id);
+    getUserDetail(user?.id);
   }, []);
 
   return (
@@ -53,14 +55,27 @@ export default function Account() {
       <TopBarMenu />
       <div className="account-ctn">
         <UserNavigation />
-        <div style={{ width: "100%", minHeight: "90vh"}}>
+        <div style={{ width: "100%", minHeight: "90vh" }}>
           <Formik
             initialValues={data || dataBasic}
             validationSchema={SignupSchema}
             enableReinitialize={true}
             onSubmit={(values) => {
               if (isEdit) {
-                setisEdit(false);
+                http
+                  .put(`/customer/edit-detail/${user?.id}`, {
+                    ...values,
+                    id: user.id,
+                    role: data.id,
+                  })
+                  .then((res) => {
+                    pushToast("success",res.message )
+                    getUserDetail(user?.id);
+                    setisEdit(false);
+                  })
+                  .catch((e) => {
+                    console.log("---hoang---e", e.data.message);
+                  });
               } else {
                 setisEdit(true);
               }

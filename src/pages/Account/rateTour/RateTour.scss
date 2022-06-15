@@ -1,0 +1,42 @@
+.rate-tour-ctn {
+  width: 100%;
+  min-height: 90vh;
+  padding: 10px;
+  .header-rate{
+    font-size: 20px;
+    display: flex;
+    .title{
+      margin-right: 20px;
+      color: #1959c6;
+    }
+  }
+  .star-rate{
+    font-size: 20px;
+    display: flex;
+    .title{
+      margin-right: 20px;
+      margin-top: 3px;
+      color: #1959c6;
+    }
+  }
+  .cmt-ctn{
+    font-size: 20px;
+    display: inline-block;
+    width: 100%;
+    .title{
+      color: #1959c6;
+    }
+    .cmt{
+      width: 100%;
+      textarea{
+        width: 100%;
+        outline: none;
+        border: 0.5px solid #1959c6;
+        border-radius: 5px;
+        min-height: 100px;
+        padding: 10px;
+        font-size: 15px;
+      }
+    }
+  }
+}
