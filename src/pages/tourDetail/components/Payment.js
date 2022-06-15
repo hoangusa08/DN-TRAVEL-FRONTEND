@@ -4,6 +4,9 @@ import "./Payment.scss";
 export default function Payment({ data }) {
   const [startDay, setStartDay] = useState("");
 
+  const [childAmount, setChildAmount] = useState(0);
+  const [adultAmount, setAdultAmount] = useState(0);
+
   const changeFruit = (newFruit) => {
     setStartDay(newFruit);
   };
@@ -17,19 +20,35 @@ export default function Payment({ data }) {
         onChange={(event) => changeFruit(event.target.value)}
         value={startDay}
       >
-        <option value="" disabled selected>
-          Select your option
-        </option>
-        <option value="oranges">Outrageous Oranges</option>
-        <option value="tomatoes">Technically a Fruit Tomatoes</option>
-        <option value="bananas">Bodacious Bananas</option>
+        {data?.schedules?.map((schedule, index) => (
+          <option
+            value={schedule.id}
+            disabled
+            selected={index === 0}
+            key={schedule.id}
+          >
+            {schedule.date}
+          </option>
+        ))}
       </select>
-
-      <Item title="Nguoi Lon" price={data?.adultPrice}></Item>
-      <Item title="Tre Em" price={data?.childPrice}></Item>
+      <Item
+        title="Nguoi Lon"
+        price={data?.adultPrice}
+        amount={adultAmount}
+        setAmount={setAdultAmount}
+      ></Item>
+      <Item
+        title="Tre Em"
+        price={data?.childPrice}
+        amount={childAmount}
+        setAmount={setChildAmount}
+      ></Item>
       <div className="total">
         <span className="total--title"> Tong Cong :</span>
-        <span className="total--price"> 8700000&nbsp; VND</span>
+        <span className="total--price">
+          {adultAmount * data?.adultPrice + childAmount * data?.childPrice}
+          &nbsp; VND
+        </span>
       </div>
       <div className="function">
         <button className="concat">Lien He Tu Van</button>
@@ -39,14 +58,22 @@ export default function Payment({ data }) {
   );
 }
 
-function Item({ title, price }) {
+function Item({ title, price, amount, setAmount }) {
   return (
     <div className="box-white">
       <span className="box-white-title">{title}</span>
       <span className="price">x{price}</span>
-      <button className="sum">+</button>
-      <span className="total">2</span>
-      <button className="sub">-</button>
+      <button className="sum" onClick={() => setAmount(amount + 1)}>
+        +
+      </button>
+      <span className="total">{amount}</span>
+      <button
+        className="sub"
+        onClick={() => setAmount(amount - 1)}
+        disabled={amount === 0}
+      >
+        -
+      </button>
     </div>
   );
 }

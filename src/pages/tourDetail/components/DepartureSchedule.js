@@ -44,7 +44,6 @@ function Item({ isTitle, content, price }) {
     return (
       <div className="item-title">
         <div>{content.start}</div>
-        <div>{content?.end}</div>
         <div>{content.status}</div>
         <div>{price}</div>
       </div>
@@ -52,8 +51,7 @@ function Item({ isTitle, content, price }) {
   }
   return (
     <div className="item-content">
-      <div>{content}</div>
-      <div>25-06-1999</div>
+      <div>{content?.date}</div>
       <div>Liên Hệ</div>
       <div>{price}</div>
     </div>

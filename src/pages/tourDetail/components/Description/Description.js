@@ -7,8 +7,10 @@ export default function Description({ data }) {
   }, [data]);
 
   return (
-    <div className="description" id="description" dangerouslySetInnerHTML={{__html: data?.description}}>
-      {/* {data?.description} */}
-    </div>
+    <div
+      className="description"
+      id="description"
+      dangerouslySetInnerHTML={{ __html: data?.description }}
+    ></div>
   );
 }

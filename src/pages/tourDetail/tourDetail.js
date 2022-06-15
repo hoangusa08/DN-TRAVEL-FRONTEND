@@ -23,11 +23,11 @@ export default function TourDetail() {
             <StarRatings
               starRatedColor="#f79321"
               numberOfStars={5}
-              rating={3.5}
+              rating={data?.totalStar}
               starDimension="20px"
             />
             <div className="evaluate">
-              <i>{3.5}</i>| 1 luot danh gia
+              <i>{data?.totalStar}</i>| {data?.rateTours?.length} luot danh gia
             </div>
           </div>
         </div>
