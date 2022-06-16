@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import React, { useCallback, useState } from "react";
 import "./Payment.scss";
 
 export default function Payment({ data }) {
@@ -6,10 +7,18 @@ export default function Payment({ data }) {
 
   const [childAmount, setChildAmount] = useState(0);
   const [adultAmount, setAdultAmount] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const changeFruit = (newFruit) => {
     setStartDay(newFruit);
   };
+
+  React.useEffect(() => {
+    if (data) {
+      setTotal(adultAmount * data?.adultPrice + childAmount * data?.childPrice);
+    }
+  }, [adultAmount, childAmount]);
+
   return (
     <div className="payment">
       <div className="title">
@@ -21,12 +30,7 @@ export default function Payment({ data }) {
         value={startDay}
       >
         {data?.schedules?.map((schedule, index) => (
-          <option
-            value={schedule.id}
-            disabled
-            selected={index === 0}
-            key={schedule.id}
-          >
+          <option value={schedule.id} selected={index === 0} key={schedule.id}>
             {schedule.date}
           </option>
         ))}
@@ -46,13 +50,36 @@ export default function Payment({ data }) {
       <div className="total">
         <span className="total--title"> Tong Cong :</span>
         <span className="total--price">
-          {adultAmount * data?.adultPrice + childAmount * data?.childPrice}
+          {total}
           &nbsp; VND
         </span>
       </div>
       <div className="function">
         <button className="concat">Lien He Tu Van</button>
-        <button className="order">Dat tour</button>
+        {/* <button className="order">Dat tour</button> */}
+        <PayPalScriptProvider
+          options={{ "client-id": process.env.REACT_APP_PAYPAL }}
+        >
+          <PayPalButtons
+            createOrder={useCallback((data, actions) => {
+              console.log( (total / 23000).toFixed(2));
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: {
+                      value: (total / 23000).toFixed(2),
+                    },
+                  },
+                ],
+              });
+            }, [total])}
+            onApprove={async (data, actions) => {
+              const details = await actions.order.capture();
+              const name = details.payer.name.given_name;
+              alert("Transaction completed by " + name);
+            }}
+          />
+        </PayPalScriptProvider>
       </div>
     </div>
   );

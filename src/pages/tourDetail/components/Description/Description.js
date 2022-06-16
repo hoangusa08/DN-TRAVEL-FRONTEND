@@ -2,9 +2,6 @@ import React from "react";
 import "./Description.scss";
 
 export default function Description({ data }) {
-  React.useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <div
