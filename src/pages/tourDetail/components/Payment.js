@@ -1,13 +1,19 @@
-import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
+import { getUser } from "../../../core/localStore";
+import http from "../../../core/services/httpService";
 import "./Payment.scss";
+import PaypalButton from "./Paypal";
+import { pushToast } from "../../../components/Toast";
+import { useHistory } from "react-router-dom";
 
 export default function Payment({ data }) {
-  const [startDay, setStartDay] = useState("");
-
+  const [startDay, setStartDay] = useState(0);
   const [childAmount, setChildAmount] = useState(0);
   const [adultAmount, setAdultAmount] = useState(0);
+  const [isPayment, setisPayment] = useState(false);
   const [total, setTotal] = useState(0);
+  const user = getUser();
+  const history = useHistory();
 
   const changeFruit = (newFruit) => {
     setStartDay(newFruit);
@@ -19,68 +25,95 @@ export default function Payment({ data }) {
     }
   }, [adultAmount, childAmount]);
 
+  const handleSubmit = async () => {
+    await http
+      .post(`/customer/payment`, {
+        adultNumber: adultAmount,
+        childrenNumber: childAmount,
+        total: total,
+        scheduleId: startDay,
+        tourId: data?.id,
+        customerId: user?.id,
+      })
+      .then((res) => {
+        pushToast("success", res.message);
+        history.push("/tourWaiting");
+      })
+      .catch((e) => {
+        pushToast("error", e?.message);
+      });
+  };
+
   return (
     <div className="payment">
-      <div className="title">
-        <span>Lịch khởi hành & giá</span>
-      </div>
-      <select
-        className="startDay"
-        onChange={(event) => changeFruit(event.target.value)}
-        value={startDay}
-      >
-        {data?.schedules?.map((schedule, index) => (
-          <option value={schedule.id} selected={index === 0} key={schedule.id}>
-            {schedule.date}
-          </option>
-        ))}
-      </select>
-      <Item
-        title="Nguoi Lon"
-        price={data?.adultPrice}
-        amount={adultAmount}
-        setAmount={setAdultAmount}
-      ></Item>
-      <Item
-        title="Tre Em"
-        price={data?.childPrice}
-        amount={childAmount}
-        setAmount={setChildAmount}
-      ></Item>
-      <div className="total">
-        <span className="total--title"> Tong Cong :</span>
-        <span className="total--price">
-          {total}
-          &nbsp; VND
-        </span>
-      </div>
-      <div className="function">
-        <button className="concat">Lien He Tu Van</button>
-        {/* <button className="order">Dat tour</button> */}
-        <PayPalScriptProvider
-          options={{ "client-id": process.env.REACT_APP_PAYPAL }}
-        >
-          <PayPalButtons
-            createOrder={useCallback((data, actions) => {
-              console.log( (total / 23000).toFixed(2));
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    amount: {
-                      value: (total / 23000).toFixed(2),
-                    },
-                  },
-                ],
-              });
-            }, [total])}
-            onApprove={async (data, actions) => {
-              const details = await actions.order.capture();
-              const name = details.payer.name.given_name;
-              alert("Transaction completed by " + name);
-            }}
-          />
-        </PayPalScriptProvider>
-      </div>
+      {!isPayment ? (
+        <>
+          {" "}
+          <div className="title">
+            <span>Lịch khởi hành & giá</span>
+          </div>
+          <select
+            className="startDay"
+            onChange={(event) => changeFruit(event.target.value)}
+            value={startDay}
+          >
+            {data?.schedules?.map((schedule, index) => (
+              <option
+                value={schedule.id}
+                selected={index === 0}
+                key={schedule.id}
+              >
+                {schedule.date}
+              </option>
+            ))}
+          </select>
+          <Item
+            title="Nguoi Lon"
+            price={data?.adultPrice}
+            amount={adultAmount}
+            setAmount={setAdultAmount}
+          ></Item>
+          <Item
+            title="Tre Em"
+            price={data?.childPrice}
+            amount={childAmount}
+            setAmount={setChildAmount}
+          ></Item>
+          <div className="total">
+            <span className="total--title"> Tong Cong :</span>
+            <span className="total--price">
+              {total}
+              &nbsp; VND
+            </span>
+          </div>
+          <div className="function">
+            <button className="concat">Lien He Tu Van</button>
+            {
+              user ? (  <button
+                className="order"
+                disabled={total === 0}
+                onClick={() => setisPayment(true)}
+              >
+                Dat tour
+              </button>) : (
+                 <button
+                 className="order"
+                 onClick={() => history.push("/login")}
+               >
+                 Login
+               </button>
+              )
+            }
+          
+          </div>
+        </>
+      ) : (
+        <PaypalButton
+          productName={data?.name}
+          totalFee={total}
+          handleSuccess={handleSubmit}
+        />
+      )}
     </div>
   );
 }
