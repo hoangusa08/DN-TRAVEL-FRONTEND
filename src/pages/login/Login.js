@@ -39,7 +39,7 @@ export default function Login() {
         }}
       >
         {(formikProps) => {
-          const { values, errors, touched } = formikProps;
+          const { errors, touched } = formikProps;
           return (
             <Form>
               <div className="login">

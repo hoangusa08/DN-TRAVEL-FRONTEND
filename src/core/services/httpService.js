@@ -31,7 +31,7 @@ http.interceptors.response.use(
   },
   (error) => {
     // Handle errors
-    console.log("error: ", error.response.data);
+    console.log("error: ", error);
     const data = error.response?.data;
     if (data && data.message) {
       throw data;

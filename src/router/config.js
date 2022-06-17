@@ -18,37 +18,37 @@ import TourWaiting from "../pages/Account/tourWaiting/TourWaiting";
 export const routeConfig = [
   {
     path: "/account",
-    isPrivate: false,
+    isPrivate: true,
     exact: true,
     component: Account
   },
   {
     path: "/tourFuture",
-    isPrivate: false,
+    isPrivate: true,
     exact: true,
     component: TourFuture
   },
   {
     path: "/tourHistory",
-    isPrivate: false,
+    isPrivate: true,
     exact: true,
     component: TourHistory
   },
   {
     path: "/tourWaiting",
-    isPrivate: false,
+    isPrivate: true,
     exact: true,
     component: TourWaiting
   },
   {
     path: "/rateTour/:id",
-    isPrivate: false,
+    isPrivate: true,
     exact: true,
     component: RateTour,
   },
   {
     path: "/changePass",
-    isPrivate: false,
+    isPrivate: true,
     exact: true,
     component: ChangePass
   },
