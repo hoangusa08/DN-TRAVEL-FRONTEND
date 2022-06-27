@@ -5,6 +5,7 @@ import "./Payment.scss";
 import PaypalButton from "./Paypal";
 import { pushToast } from "../../../components/Toast";
 import { useHistory } from "react-router-dom";
+import useGetApiCurrency from "../../../hook/useGetApiCurrency";
 
 export default function Payment({ data }) {
   const [startDay, setStartDay] = useState(0);
@@ -14,7 +15,7 @@ export default function Payment({ data }) {
   const [total, setTotal] = useState(0);
   const user = getUser();
   const history = useHistory();
-
+  const [currency] = useGetApiCurrency();
   const changeFruit = (newFruit) => {
     setStartDay(newFruit);
   };
@@ -88,23 +89,19 @@ export default function Payment({ data }) {
           </div>
           <div className="function">
             <button className="concat">Liên hệ tư vấn</button>
-            {
-              user ? (  <button
+            {user ? (
+              <button
                 className="order"
                 disabled={total === 0}
                 onClick={() => setisPayment(true)}
               >
                 Đặt tour
-              </button>) : (
-                 <button
-                 className="order"
-                 onClick={() => history.push("/login")}
-               >
-                 Đăng nhập
-               </button>
-              )
-            }
-          
+              </button>
+            ) : (
+              <button className="order" onClick={() => history.push("/login")}>
+                Đăng nhập
+              </button>
+            )}
           </div>
         </>
       ) : (
@@ -112,6 +109,7 @@ export default function Payment({ data }) {
           productName={data?.name}
           totalFee={total}
           handleSuccess={handleSubmit}
+          currency={currency}
         />
       )}
     </div>

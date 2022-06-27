@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
-const PaypalButton = ({ productName, totalFee, handleSuccess }) => {
+const PaypalButton = ({ productName, totalFee, handleSuccess, currency }) => {
   const paypal = useRef();
 
   useEffect(() => {
+    console.log("---hoang---", (totalFee / currency?.USD_VND).toFixed(2));
     window.paypal
       .Buttons({
         createOrder: (data, actions, err) => {
@@ -15,7 +16,7 @@ const PaypalButton = ({ productName, totalFee, handleSuccess }) => {
                 description: `Thanh toán đơn hàng cho sản phẩm ${productName}}`,
                 amount: {
                   currency_code: "USD",
-                  value: (totalFee / 23000).toFixed(2),
+                  value: (totalFee / currency?.USD_VND).toFixed(2),
                 },
               },
             ],
