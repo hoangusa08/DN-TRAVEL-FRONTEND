@@ -32,11 +32,11 @@ export default function TourHistory() {
               <tr>
                 <th>Stt</th>
                 <th>Tour</th>
-                <th>Nha Cung Cap</th>
-                <th>Ngay Khoi Hanh</th>
-                <th>Nguoi lon</th>
-                <th>Tre em</th>
-                <th>Tong tien</th>
+                <th>Nhà Cung Cấp</th>
+                <th>Ngày Khởi Hành</th>
+                <th>Người lớn</th>
+                <th>Trẻ em</th>
+                <th>Tổng tiền</th>
                 <th>Danh gia</th>
               </tr>
             </thead>
@@ -51,7 +51,11 @@ export default function TourHistory() {
                   <td>{pay.childrenNumber}</td>
                   <td>{pay.total}</td>
                   <td>
-                    <Button onClick={() => history.push(`/rateTour/${pay.tourId}`)}>Danh Gia</Button>
+                    <Button
+                      onClick={() => history.push(`/rateTour/${pay.tourId}`)}
+                    >
+                      Dánh Giá
+                    </Button>
                   </td>
                 </tr>
               ))}

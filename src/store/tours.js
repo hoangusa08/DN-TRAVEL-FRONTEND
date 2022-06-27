@@ -40,3 +40,16 @@ export const getTours = (page, search) => async (dispatch) => {
     return console.error(e.message);
   }
 };
+
+export const getToursByPath = (path, id) => async (dispatch) => {
+  try {
+    dispatch(setLoading({ loading: true }));
+    const data = await http.get(`tour/${path}/${id}`);
+
+    dispatch(getToursSuccess({ ...data, search: "" }));
+  } catch (e) {
+    dispatch(setLoading({ loading: false }));
+    pushToast("error", "Something wrong");
+    return console.error(e.message);
+  }
+};

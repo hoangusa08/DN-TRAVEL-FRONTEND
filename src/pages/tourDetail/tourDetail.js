@@ -27,7 +27,7 @@ export default function TourDetail() {
               starDimension="20px"
             />
             <div className="evaluate">
-              <i>{data?.totalStar}</i>| {data?.rateTours?.length} luot danh gia
+              <i>{data?.totalStar}</i>| {data?.rateTours?.length} Lượt đánh giá
             </div>
           </div>
         </div>

@@ -18,13 +18,16 @@
         display: flex;
         .avatar {
           height: 50px;
-          margin-right: 20px;
+          margin-right: 10px;
         }
         .name {
           padding-top: 12px;
           cursor: pointer;
           &:hover{
             color: #0d6efd;
+          }
+          i{
+            margin-left: 5px;
           }
         }
         .dropDown {

@@ -19,7 +19,7 @@ export default function Function() {
         onChange={(e) => setSearch(e.target.value)}
       ></input>
       <Button className="function-submit" onClick={() => handleSumit()}>
-        Search
+        Tìm kiếm
       </Button>
     </div>
   );

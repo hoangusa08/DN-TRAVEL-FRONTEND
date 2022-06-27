@@ -68,11 +68,11 @@ export default function ChangePass() {
                   <div className="account-formik">
                     <div className="item-ctn">
                       <div className="item">
-                        <h4>Old Password</h4>
+                        <h4>Mật khẩu củ</h4>
                         <Field
                           name="oldPassword"
                           className="form-input"
-                          placeholder="Old Password"
+                          placeholder="Mật khẩu củ"
                           type="password"
                         />
                         {errors.oldPassword && touched.oldPassword ? (
@@ -80,11 +80,11 @@ export default function ChangePass() {
                         ) : null}
                       </div>
                       <div className="item">
-                        <h4>New Password</h4>
+                        <h4>Mật khẩu mới</h4>
                         <Field
                           name="newPassword"
                           className="form-input"
-                          placeholder="New Password"
+                          placeholder="Mật khẩu mới"
                           type="password"
                         />
                         {errors.newPassword && touched.newPassword ? (
@@ -92,11 +92,11 @@ export default function ChangePass() {
                         ) : null}
                       </div>
                       <div className="item">
-                        <h4>Repeat New Password</h4>
+                        <h4>Nhắc lại mật khẩu</h4>
                         <Field
                           name="repeatNewPassword"
                           className="form-input"
-                          placeholder="Repeat New Password"
+                          placeholder="Nhắc lại mật khẩu"
                           type="password"
                         />
                         {errors.repeatNewPassword &&

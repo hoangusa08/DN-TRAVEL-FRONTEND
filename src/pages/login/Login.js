@@ -71,20 +71,20 @@ export default function Login() {
                       name="password"
                       className="form-input"
                       type="password"
-                      placeholder="password"
+                      placeholder="Mật Khẩu"
                     />
                     {errors.password && touched.password ? (
                       <div className="rig-error">{errors.password}</div>
                     ) : null}
                   </div>
-                  <button>Submit</button>
+                  <button>Đăng Nhập</button>
                   <div className="back-login">
-                    <span>Already have an account?</span>
-                    <Link to="/register">Register here</Link>
+                    <span>Bạn chưa có tài khoản?</span>
+                    <Link to="/register">Đăng kí tại đây</Link>
                   </div>
                   <div className="back-login">
-                    <span>back to home</span>
-                    <Link to="/">In here</Link>
+                    <span>Trở về trang chủ</span>
+                    <Link to="/">Tại đây</Link>
                   </div>
                 </div>
               </div>

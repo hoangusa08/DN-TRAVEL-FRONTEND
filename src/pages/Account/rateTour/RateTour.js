@@ -8,6 +8,7 @@ import { Button } from "react-bootstrap";
 import { getUser } from "../../../core/localStore";
 import http from "../../../core/services/httpService";
 import { pushToast } from "../../../components/Toast";
+import useFetchRateTour from "../../../hook/useFetchRateTour";
 
 export default function RateTour() {
   const id = window.location.href.split("/");
@@ -17,11 +18,14 @@ export default function RateTour() {
   });
   const user = getUser();
   const [data, getTourDetail] = useFetchTourDetail();
+  const [rate, getRateTour] = useFetchRateTour();
+  const [star, setstar] = useState(3);
   const ratingChanged = (newRating) => {
     setCmt({ ...cmt, star: newRating });
   };
 
   useEffect(() => {
+    getRateTour(id[id.length - 1], user?.id);
     getTourDetail(id[id.length - 1]);
   }, []);
 
@@ -41,6 +45,11 @@ export default function RateTour() {
       });
   };
 
+  useEffect(() => {
+    setstar(rate?.star);
+   console.log(rate);
+  }, [rate])
+  
   return (
     <div>
       <TopBarMenu />
@@ -52,17 +61,18 @@ export default function RateTour() {
             <div>{"  " + data?.name.toUpperCase()}</div>
           </div>
           <div className="star-rate">
-            <div className="title">Star:</div>
+            <div className="title">Số sao:</div>
             <ReactStars
               count={5}
               onChange={ratingChanged}
               size={24}
               activeColor="#ffd700"
+              value={star}
             />
           </div>
 
           <div className="cmt-ctn">
-            <div className="title">Comment</div>
+            <div className="title">Đánh giá</div>
             <div className="cmt">
               <textarea
                 value={cmt?.comment}
@@ -70,7 +80,8 @@ export default function RateTour() {
               />
             </div>
           </div>
-          <Button onClick={() => handleSubmit()}>Submit</Button>
+
+          <Button onClick={() => handleSubmit()}>Lưu</Button>
         </div>
       </div>
     </div>

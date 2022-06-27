@@ -15,7 +15,7 @@ export default function DepartureSchedule({ data }) {
     <div className="departureSchedule">
       <div className="departureSchedule-top">
         <div className="title">
-          <strong>Lich KHoi Hanh</strong>
+          <strong>Lịch Khởi Hành</strong>
         </div>
         <div>
           <DatePicker
@@ -53,7 +53,7 @@ function Item({ isTitle, content, price }) {
     <div className="item-content">
       <div>{content?.date}</div>
       <div>Liên Hệ</div>
-      <div>{price}</div>
+      <div>{price} VND</div>
     </div>
   );
 }

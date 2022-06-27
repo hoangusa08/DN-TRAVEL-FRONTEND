@@ -35,11 +35,11 @@ export default function TourWaiting() {
               <tr>
                 <th>Stt</th>
                 <th>Tour</th>
-                <th>Nha Cung Cap</th>
-                <th>Ngay Khoi Hanh</th>
-                <th>Nguoi lon</th>
-                <th>Tre em</th>
-                <th>Tong tien</th>
+                <th>Nhà Cung Cấp</th>
+                <th>Ngày Khởi Hành</th>
+                <th>Người lớn</th>
+                <th>Trẻ em</th>
+                <th>Tổng tiền</th>
               </tr>
             </thead>
             <tbody>

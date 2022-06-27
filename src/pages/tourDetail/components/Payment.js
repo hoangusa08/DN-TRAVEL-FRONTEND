@@ -68,39 +68,39 @@ export default function Payment({ data }) {
             ))}
           </select>
           <Item
-            title="Nguoi Lon"
+            title="Người Lớn"
             price={data?.adultPrice}
             amount={adultAmount}
             setAmount={setAdultAmount}
           ></Item>
           <Item
-            title="Tre Em"
+            title="Trẻ Em"
             price={data?.childPrice}
             amount={childAmount}
             setAmount={setChildAmount}
           ></Item>
           <div className="total">
-            <span className="total--title"> Tong Cong :</span>
+            <span className="total--title"> Tổng Cộng :</span>
             <span className="total--price">
               {total}
               &nbsp; VND
             </span>
           </div>
           <div className="function">
-            <button className="concat">Lien He Tu Van</button>
+            <button className="concat">Liên hệ tư vấn</button>
             {
               user ? (  <button
                 className="order"
                 disabled={total === 0}
                 onClick={() => setisPayment(true)}
               >
-                Dat tour
+                Đặt tour
               </button>) : (
                  <button
                  className="order"
                  onClick={() => history.push("/login")}
                >
-                 Login
+                 Đăng nhập
                </button>
               )
             }

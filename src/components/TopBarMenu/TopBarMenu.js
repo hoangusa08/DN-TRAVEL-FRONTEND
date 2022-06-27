@@ -38,16 +38,16 @@ export default function TopBarMenu({ handleMenu }) {
         <div className="col middle-menu">
           <div className="row">
             <div className="col">
-              <Link to="/">Trang Chu</Link>
+              <Link to="/">Trang Chủ</Link>
             </div>
             <div className="col">
-              <Link to="/Tour">Tour</Link>
+              <Link to="/Tour">Chuyến Du Lịch</Link>
             </div>
             <div className="col">
-              <a href="a">Ban Do</a>
+              <a href="a">Bản Đồ</a>
             </div>
             <div className="col">
-              <a href="a">Lien He</a>
+              <a href="a">Liên Hệ</a>
             </div>
           </div>
         </div>
@@ -56,10 +56,10 @@ export default function TopBarMenu({ handleMenu }) {
             {!isLogin ? (
               <>
                 <div className="col">
-                  <Link to="/login">đăng nhập</Link>
+                  <Link to="/login">Đăng Nhập</Link>
                 </div>
                 <div className="col">
-                  <Link to="/register">đăng kí</Link>
+                  <Link to="/register">Đăng Kí</Link>
                 </div>
               </>
             ) : (
@@ -79,9 +79,9 @@ export default function TopBarMenu({ handleMenu }) {
                 </div>
                 {dropDown ? (
                   <div className="dropDown">
-                    <div className="item" onClick={()=> history.push("/account")}>My Account</div>
+                    <div className="item" onClick={()=> history.push("/account")}>Tài Khoản Của Tôi</div>
                     <div className="item" onClick={() => onLogOut()}>
-                      Log Out
+                      Đăng Xuất
                     </div>
                   </div>
                 ) : (

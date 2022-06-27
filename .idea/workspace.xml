@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d9e696d-78fc-4315-bc71-298a73b79599" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/Bottom/Bottom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Bottom/Bottom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardTour/CardTour.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTour/CardTour.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardTourDetail/CardTourDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTourDetail/CardTourDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardTourDetail/CardTourDetail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTourDetail/CardTourDetail.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pagination/Pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pagination/Pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SlideBar/Slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SlideBar/Slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SlideBarLeft/SlideBarLeft.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SlideBarLeft/SlideBarLeft.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SlideBarLeft/component/MenuChild.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SlideBarLeft/component/MenuChild.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SuggestionsHome/SuggestionsHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SuggestionsHome/SuggestionsHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopBarMenu/TopBarMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopBarMenu/TopBarMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopBarMenu/TopBarMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopBarMenu/TopBarMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/Account.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/Account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/ChangePass/ChangePass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/ChangePass/ChangePass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/Component/UserNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/Component/UserNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/rateTour/RateTour.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/rateTour/RateTour.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/tourFuture/TourFuture.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/tourFuture/TourFuture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/tourHistory/TourHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/tourHistory/TourHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/tourWaiting/TourWaiting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/tourWaiting/TourWaiting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tour/Function/Function.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tour/Function/Function.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tour/Function/Function.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tour/Function/Function.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tour/tour.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tour/tour.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tourDetail/components/DepartureSchedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tourDetail/components/DepartureSchedule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tourDetail/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tourDetail/components/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tourDetail/components/Rated/Rated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tourDetail/components/Rated/Rated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tourDetail/components/Rated/Rated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tourDetail/components/Rated/Rated.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tourDetail/tourDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tourDetail/tourDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/tours.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tours.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2B8ZOxIBIAdoQIs3NXsUTEesNeJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d9e696d-78fc-4315-bc71-298a73b79599" name="Changes" comment="" />
+      <created>1656289652542</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656289652542</updated>
+      <workItem from="1656289656689" duration="4000" />
+    </task>
+    <servers />
+  </component>
+</project>

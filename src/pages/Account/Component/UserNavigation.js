@@ -26,7 +26,7 @@ export default function UserNavigation() {
             alt="user"
           ></img>
         </div>
-        <button className="changeImg">Doi Anh</button>
+        <button className="changeImg">Dổi ảnh</button>
       </div>
       <div
         className={
@@ -36,7 +36,7 @@ export default function UserNavigation() {
         }
         onClick={() => handleClick("tourWaiting")}
       >
-        Ki nghi dang cho xac nhan
+        Tour đang chờ xác nhận
       </div>
       <div
         className={
@@ -46,7 +46,7 @@ export default function UserNavigation() {
         }
         onClick={() => handleClick("tourFuture")}
       >
-        Ki nghi sap toi
+        Tour sắp tới
       </div>
       <div
         className={
@@ -56,7 +56,7 @@ export default function UserNavigation() {
         }
         onClick={() => handleClick("tourHistory")}
       >
-        Ki nghi da di
+        Tour đã đi
       </div>
       <div
         className={

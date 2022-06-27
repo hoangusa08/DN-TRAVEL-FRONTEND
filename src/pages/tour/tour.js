@@ -20,7 +20,7 @@ export default function Tour() {
   return (
     <MainLayout>
       <div className="tour">
-        <div className="row">
+        <div className="row" style={{ marginBottom: "10px" }}>
           <div className="col-3">
             <SlideBarLeft />
           </div>

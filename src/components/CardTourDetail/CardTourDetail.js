@@ -25,7 +25,7 @@ export default function CardTourDetail({ tour }) {
           <h6 className="mota">/{tour.star}</h6>
         </div>
         <div>
-          <span>{tour.name}</span>
+          <span>{tour.name.toUpperCase()}</span>
         </div>
         <div style={{paddingLeft: "10px"}}>
           <span>
@@ -38,7 +38,7 @@ export default function CardTourDetail({ tour }) {
           <span>Giá: {tour.adultPrice}</span>
         </div>
         <div >
-          <Button className="chitiet">chi tiet</Button>
+          <Button className="chitiet">Chi tiết</Button>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@ export default function Register() {
       }}
     >
       {(formikProps) => {
-        const { values, errors, touched } = formikProps;
+        const { errors, touched } = formikProps;
         return (
           <Form>
             <div className="register">
@@ -66,7 +66,7 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                  <Field name="userName"  className="form-input" placeholder="Username"/>
+                  <Field name="userName"  className="form-input" placeholder="Tên tài khoản"/>
                   {errors.userName && touched.userName ? (
                     <div className="rig-error">{errors.userName}</div>
                   ) : null}
@@ -90,7 +90,7 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="address"  className="form-input" placeholder="Address"/>
+                   <Field name="address"  className="form-input" placeholder="Địa chỉ"/>
                   {errors.address && touched.address ? (
                     <div className="rig-error">{errors.address}</div>
                   ) : null}
@@ -102,7 +102,7 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="phoneNumber"  className="form-input"  placeholder="Phone Number"/>
+                   <Field name="phoneNumber"  className="form-input"  placeholder="Số Điện Thoại"/>
                   {errors.phoneNumber && touched.phoneNumber ? (
                     <div className="rig-error">{errors.phoneNumber}</div>
                   ) : null}
@@ -114,7 +114,7 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="password"  className="form-input" type="password" placeholder="password"/>
+                   <Field name="password"  className="form-input" type="password" placeholder="Mật khẩu"/>
                   {errors.password && touched.password ? (
                     <div className="rig-error">{errors.password}</div>
                   ) : null}
@@ -126,19 +126,19 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="fullName"  className="form-input" placeholder="Full Name"/>
+                   <Field name="fullName"  className="form-input" placeholder="Tên người dùng"/>
                   {errors.fullName && touched.fullName ? (
                     <div className="rig-error">{errors.fullName}</div>
                   ) : null}
                 </div>
-                <button>Submit</button>
+                <button>Đăng kí</button>
                 <div className="back-login">
-                  <span>Already have an account?</span>
-                  <Link to="/login">Login here</Link>
+                  <span>Bạn đã có tài khoản?</span>
+                  <Link to="/login">Đăng nhập tại đây</Link>
                 </div>
                 <div className="back-login">
-                  <span>back to home?</span>
-                  <Link to="/">In here</Link>
+                  <span>Trở về trang chủ?</span>
+                  <Link to="/">Tại Đây</Link>
                 </div>
               </div>
             </div>

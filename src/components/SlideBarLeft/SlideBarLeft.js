@@ -1,17 +1,17 @@
 import React from "react";
 import MenuChild from "./component/MenuChild";
 import "./SlideBarLeft.scss";
-import { Province } from "../../assets/constant/provinces";
+import useGetProvince from "../../hook/useGetProvince";
+import useGetCategories from "../../hook/useGetCategories";
 
-const menu2 = {
-  title: "Theo Loai",
-  items: Province.map( (provice) => provice.name),
-};
 
 export default function SlideBarLeft() {
+  const [provinces] = useGetProvince();
+  const [categories] = useGetCategories()
   return (
     <div className="slide-bar-left">
-      <MenuChild {...menu2} />
+      <MenuChild title={"Nơi khởi hành"} items={provinces} />
+      <MenuChild title={"Thể loại"} items={categories} />
     </div>
   );
 }

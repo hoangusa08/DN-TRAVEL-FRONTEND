@@ -35,7 +35,7 @@ export default function Slider() {
         </div>
         <div className="form-search">
           <div className="province-ctn">
-            <input className="province" placeholder="ban muon di dau"></input>
+            <input className="province" placeholder="Bạn muốn đi đâu"></input>
           </div>
           <div className="bottom-ctn">
             <DatePicker
@@ -45,14 +45,14 @@ export default function Slider() {
                 setStartDate(date);
               }}
             />
-            <input className="fromInput" placeholder="khoi hanh tu"></input>
+            <input className="fromInput" placeholder="Khởi hành từ"></input>
           </div>
           <div className="province-ctn">
-            <button >Tim</button>
+            <button >Tìm</button>
           </div>
           <div className="search-bottom">
             <span>Tailor tour - Trải nghiệm theo cách riêng của bạn</span>
-            <button>Dat Tour Rieng</button>
+            <button>Đặt Tour Riêng</button>
           </div>
         </div>
       </div>

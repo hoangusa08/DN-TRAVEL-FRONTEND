@@ -13,7 +13,7 @@ export default function Rated({ data }) {
           starDimension="20px"
         />
         <h6 className="mota">/{data?.totalStar}</h6>
-        <h6 className="numberReview">| {data?.rateTours?.length} danh gia </h6>
+        <h6 className="numberReview">| {data?.rateTours?.length} Đánh giá </h6>
       </div>
       {data?.rateTours?.map((review, index) => (
         <RateItem key={index} review={review}></RateItem>

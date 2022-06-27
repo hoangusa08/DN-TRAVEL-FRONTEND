@@ -6,21 +6,19 @@ export default function Bottom() {
     <div className="bottom">
       <div className="row noti">
         <div className="col">
-          <span> THONG TIN</span>
+          <span> THÔNG TIN</span>
           <ul>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
+            <li>0339905697</li>
+            <li>Dulichviet@gmail.com</li>
           </ul>
         </div>
         <div className="col">
           <span>MUC LUC</span>
           <ul>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
+            <li>Blogs</li>
+            <li>Tour</li>
+            <li>Bản đồ</li>
+            <li>Liên hệ</li>
           </ul>
         </div>
         <div className="col">
