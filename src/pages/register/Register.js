@@ -5,35 +5,33 @@ import {
   faUser,
   faAddressBook,
   faEnvelope,
-
 } from "@fortawesome/free-regular-svg-icons";
-import { faKey, faPhone} from "@fortawesome/free-solid-svg-icons";
+import { faKey, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Form, Formik, Field } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import http from "../../core/services/httpService";
+import { pushToast } from "../../components/Toast";
 
 const SignupSchema = Yup.object().shape({
-  userName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+  username: Yup.string()
+    .min(2, "Quá ngắn!")
+    .max(50, "Quá dài!")
+    .required("Quan trọng!"),
   address: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+    .min(2, "Quá ngắn!")
+    .max(50, "Quá dài!")
+    .required("Quan trọng!"),
+  email: Yup.string().email("Email không đúng").required("Quan trọng!"),
   password: Yup.string()
-  .min(2, "Too Short!")
-  .max(50, "Too Long!")
-  .required("Required"),
-  phoneNumber: Yup.number()
-  .min(2, "Too Short!")
-  .max(15, "Too Long!")
-  .required("Required"),
-  fullName:Yup.string()
-  .min(2, "Too Short!")
-  .max(50, "Too Long!")
-  .required("Required")
+    .min(2, "Quá ngắn!")
+    .max(50, "Quá dài!")
+    .required("Quan trọng!"),
+  phoneNumber: Yup.number().min(2, "Quá ngắn!").required("Quan trọng!"),
+  fullName: Yup.string()
+    .min(2, "Quá ngắn!")
+    .max(50, "Quá dài!")
+    .required("Quan trọng!"),
 });
 
 export default function Register() {
@@ -45,12 +43,17 @@ export default function Register() {
         email: "",
         password: "",
         phoneNumber: "",
-        fullName: ""
+        fullName: "",
       }}
       validationSchema={SignupSchema}
-      onSubmit={(values) => {
-        // same shape as initial values
+      onSubmit={async (values) => {
         console.log(values);
+        await http
+          .post("/authen/register/customer", values)
+          .then((res) => {
+            pushToast("success", res.message);
+          })
+          .catch((e) => pushToast("error", e.message));
       }}
     >
       {(formikProps) => {
@@ -66,9 +69,13 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                  <Field name="userName"  className="form-input" placeholder="Tên tài khoản"/>
-                  {errors.userName && touched.userName ? (
-                    <div className="rig-error">{errors.userName}</div>
+                  <Field
+                    name="username"
+                    className="form-input"
+                    placeholder="Tên tài khoản"
+                  />
+                  {errors.username && touched.username ? (
+                    <div className="rig-error">{errors.username}</div>
                   ) : null}
                 </div>
                 <div className="form-parent">
@@ -78,7 +85,11 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="email"  className="form-input" placeholder="Email"/>
+                  <Field
+                    name="email"
+                    className="form-input"
+                    placeholder="Email"
+                  />
                   {errors.email && touched.email ? (
                     <div className="rig-error">{errors.email}</div>
                   ) : null}
@@ -90,7 +101,11 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="address"  className="form-input" placeholder="Địa chỉ"/>
+                  <Field
+                    name="address"
+                    className="form-input"
+                    placeholder="Địa chỉ"
+                  />
                   {errors.address && touched.address ? (
                     <div className="rig-error">{errors.address}</div>
                   ) : null}
@@ -102,7 +117,11 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="phoneNumber"  className="form-input"  placeholder="Số Điện Thoại"/>
+                  <Field
+                    name="phoneNumber"
+                    className="form-input"
+                    placeholder="Số Điện Thoại"
+                  />
                   {errors.phoneNumber && touched.phoneNumber ? (
                     <div className="rig-error">{errors.phoneNumber}</div>
                   ) : null}
@@ -114,7 +133,12 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="password"  className="form-input" type="password" placeholder="Mật khẩu"/>
+                  <Field
+                    name="password"
+                    className="form-input"
+                    type="password"
+                    placeholder="Mật khẩu"
+                  />
                   {errors.password && touched.password ? (
                     <div className="rig-error">{errors.password}</div>
                   ) : null}
@@ -126,7 +150,11 @@ export default function Register() {
                     color="while"
                     size="lg"
                   />
-                   <Field name="fullName"  className="form-input" placeholder="Tên người dùng"/>
+                  <Field
+                    name="fullName"
+                    className="form-input"
+                    placeholder="Tên người dùng"
+                  />
                   {errors.fullName && touched.fullName ? (
                     <div className="rig-error">{errors.fullName}</div>
                   ) : null}
