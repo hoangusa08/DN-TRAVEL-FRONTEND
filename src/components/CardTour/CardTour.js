@@ -3,9 +3,6 @@ import { useHistory } from "react-router-dom";
 import StarRating from "react-star-ratings";
 import "./CardTour.scss";
 
-const image =
-  "https://vietnam.travel/sites/default/files/styles/top_banner/public/2019-09/nature.jpg?itok=wWtFQZ9M";
-
 export default function CardTour({ tour }) {
   const history = useHistory();
   const goToTorDetail = () => {

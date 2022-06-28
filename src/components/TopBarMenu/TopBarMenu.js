@@ -47,7 +47,7 @@ export default function TopBarMenu({ handleMenu }) {
               <a href="a">Bản Đồ</a>
             </div>
             <div className="col">
-              <a href="a">Liên Hệ</a>
+            <Link to="/contact">Liên Hệ</Link>
             </div>
           </div>
         </div>

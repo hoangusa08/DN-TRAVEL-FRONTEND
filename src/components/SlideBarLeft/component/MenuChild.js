@@ -4,7 +4,7 @@ import { getToursByPath } from "../../../store/tours";
 import "./MenuChild.scss";
 
 export default function MenuChild({ title, items }) {
-  const [active, setActive] = useState(-1);
+  const [active] = useState(-1);
   const [index, setIndex] = useState(10);
 
   const dispatch = useDispatch();

@@ -1,0 +1,38 @@
+.contact {
+  margin: 20px 200px 0;
+  &-header {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    h1{
+      color: rgb(255, 102, 0);
+    }
+    .content {
+      font-size: 18px;
+    }
+  }
+  &-block {
+    background-color: #f9f9f9;
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    .left {
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+    }
+    .right {
+      .title {
+        color: #e04f67;
+      }
+      .content {
+        padding: 10px;
+        font-size: 18px;
+      }
+    }
+  }
+}

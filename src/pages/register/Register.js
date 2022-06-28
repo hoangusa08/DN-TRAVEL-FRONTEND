@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faKey, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Form, Formik, Field } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import http from "../../core/services/httpService";
 import { pushToast } from "../../components/Toast";
@@ -28,13 +28,14 @@ const SignupSchema = Yup.object().shape({
     .max(50, "Quá dài!")
     .required("Quan trọng!"),
   phoneNumber: Yup.number().min(2, "Quá ngắn!").required("Quan trọng!"),
-  fullName: Yup.string()
+  fullname: Yup.string()
     .min(2, "Quá ngắn!")
     .max(50, "Quá dài!")
     .required("Quan trọng!"),
 });
 
 export default function Register() {
+  const history = useHistory();
   return (
     <Formik
       initialValues={{
@@ -43,15 +44,15 @@ export default function Register() {
         email: "",
         password: "",
         phoneNumber: "",
-        fullName: "",
+        fullname: "",
       }}
       validationSchema={SignupSchema}
       onSubmit={async (values) => {
-        console.log(values);
         await http
           .post("/authen/register/customer", values)
           .then((res) => {
             pushToast("success", res.message);
+            history.push("/login");
           })
           .catch((e) => pushToast("error", e.message));
       }}
@@ -151,12 +152,12 @@ export default function Register() {
                     size="lg"
                   />
                   <Field
-                    name="fullName"
+                    name="fullname"
                     className="form-input"
                     placeholder="Tên người dùng"
                   />
-                  {errors.fullName && touched.fullName ? (
-                    <div className="rig-error">{errors.fullName}</div>
+                  {errors.fullname && touched.fullname ? (
+                    <div className="rig-error">{errors.fullname}</div>
                   ) : null}
                 </div>
                 <button>Đăng kí</button>
