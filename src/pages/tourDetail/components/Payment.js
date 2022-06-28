@@ -22,6 +22,12 @@ export default function Payment({ data }) {
 
   React.useEffect(() => {
     if (data) {
+      setStartDay(data?.schedules[0].id);
+    }
+  }, [data]);
+
+  React.useEffect(() => {
+    if (data) {
       setTotal(adultAmount * data?.adultPrice + childAmount * data?.childPrice);
     }
   }, [adultAmount, childAmount]);
@@ -59,11 +65,7 @@ export default function Payment({ data }) {
             value={startDay}
           >
             {data?.schedules?.map((schedule, index) => (
-              <option
-                value={schedule.id}
-                selected={index === 0}
-                key={schedule.id}
-              >
+              <option value={schedule.id} key={schedule.id}>
                 {schedule.date}
               </option>
             ))}

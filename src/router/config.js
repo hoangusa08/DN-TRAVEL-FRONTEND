@@ -14,6 +14,7 @@ import ChangePass from "../pages/Account/ChangePass/ChangePass"
 import RateTour from "../pages/Account/rateTour/RateTour";
 import TourWaiting from "../pages/Account/tourWaiting/TourWaiting";
 import Contact from "../pages/contacts/Contact";
+import Maps from "../pages/maps/Maps";
 
 
 export const routeConfig = [
@@ -76,6 +77,12 @@ export const routeConfig = [
     isPrivate: false,
     exact: true,
     component: Contact
+  },
+  {
+    path: "/maps",
+    isPrivate: false,
+    exact: true,
+    component: Maps
   },
   {
     path: "/register",

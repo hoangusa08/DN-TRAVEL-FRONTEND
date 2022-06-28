@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Slider.scss";
 import BtnSlider from "./BtnSlider";
 import DataSlider from "./DataSlider";
 import dataSlide from "./DataSlider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useGetProvince from "../../hook/useGetProvince";
+import http from "../../core/services/httpService";
 
 export default function Slider() {
   const [slideIndex, setSlideIndex] = useState(1);
   const [startDate, setStartDate] = useState(new Date());
+  const [provinces] = useGetProvince();
+  const [location, setLocation] = useState();
 
   const nextSlide = () => {
     if (slideIndex !== DataSlider.length) {
@@ -26,6 +30,29 @@ export default function Slider() {
     }
   };
 
+  useEffect(() => {
+    if (provinces) {
+      setLocation(provinces[0].id);
+    }
+  }, [provinces]);
+
+  const handleSearch = () => {
+    http
+      .post(
+        `tour/home`,
+        {
+          date: startDate,
+          provinceId: location
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <div className="container-slider">
       <div className="search-ctn-slide">
@@ -34,9 +61,9 @@ export default function Slider() {
           <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
         </div>
         <div className="form-search">
-          <div className="province-ctn">
+          {/* <div className="province-ctn">
             <input className="province" placeholder="Bạn muốn đi đâu"></input>
-          </div>
+          </div> */}
           <div className="bottom-ctn">
             <DatePicker
               selected={startDate}
@@ -45,10 +72,21 @@ export default function Slider() {
                 setStartDate(date);
               }}
             />
-            <input className="fromInput" placeholder="Khởi hành từ"></input>
+            <select
+              className="fromInput"
+              onChange={(event) => setLocation(event.target.value)}
+              value={location}
+            >
+              {provinces?.map((schedule, index) => (
+                <option value={schedule.id} key={schedule.id}>
+                  {schedule.name}
+                </option>
+              ))}
+            </select>
+            {/* <input className="fromInput" placeholder="Khởi hành từ"></input> */}
           </div>
           <div className="province-ctn">
-            <button >Tìm</button>
+            <button onClick={() => handleSearch()}>Tìm</button>
           </div>
           <div className="search-bottom">
             <span>Tailor tour - Trải nghiệm theo cách riêng của bạn</span>
@@ -63,7 +101,8 @@ export default function Slider() {
             key={obj.id}
           >
             <img
-              src={process.env.PUBLIC_URL + `/image/image${index + 1}.jpg`} alt=""
+              src={process.env.PUBLIC_URL + `/image/image${index + 1}.jpg`}
+              alt=""
             />
           </div>
         );
