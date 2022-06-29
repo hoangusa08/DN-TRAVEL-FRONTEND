@@ -13,7 +13,7 @@ export default function Bottom() {
           </ul>
         </div>
         <div className="col">
-          <span>MUC LUC</span>
+          <span>MỤC LỤC</span>
           <ul>
             <li>Blogs</li>
             <li>Tour</li>
@@ -22,30 +22,14 @@ export default function Bottom() {
           </ul>
         </div>
         <div className="col">
-          <span>KHAM PHA</span>
+          <span>KHÁM PHÁ</span>
           <ul>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
+            <li>Điểm Đến Việt Nam</li>
+            <li>Ẩm Thực Việt Nam</li>
+            <li>Lễ hội Việt Nam</li>
+            <li>Tin tức </li>
           </ul>
         </div>
-        <div className="col">
-          <span>LIEN KET</span>
-          <ul>
-            <li>xysBFJHBFJHSF</li>
-            <li>xys</li>
-            <li>xys</li>
-            <li>xys</li>
-          </ul>
-        </div>
-      </div>
-      <div className="row icon">
-        <div className="col">vndfknvkj</div>
-        <div className="col">vndfknvkj</div>
-        <div className="col">vndfknvkj</div>
-        <div className="col">vndfknvkj</div>
-        <div className="col">vndfknvkj</div>
       </div>
     </div>
   );
