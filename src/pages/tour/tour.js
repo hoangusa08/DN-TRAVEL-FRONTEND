@@ -5,16 +5,22 @@ import MainLayout from "../../layout/MainLayout";
 import Function from "./Function/Function";
 import "./tour.scss";
 import React from "react";
-import { getTours } from "../../store/tours";
+import { getTours, getToursSearchHome } from "../../store/tours";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 export default function Tour() {
   const dispatch = useDispatch();
 
   const tours = useSelector((state) => state.tours);
-
+  const location = useLocation();
   React.useEffect(() => {
-    dispatch(getTours(0, ""));
+    if (location.state) {
+      console.log(location.state);
+      dispatch(getToursSearchHome(location.state));
+    } else {
+      dispatch(getTours(0, ""));
+    }
   }, []);
 
   return (

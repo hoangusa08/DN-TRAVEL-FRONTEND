@@ -53,3 +53,16 @@ export const getToursByPath = (path, id) => async (dispatch) => {
     return console.error(e.message);
   }
 };
+
+export const getToursSearchHome = ( props ) => async (dispatch) => {
+  console.log('---hoang---', props);
+  try {
+    dispatch(setLoading({ loading: true }));
+    const data = await http.post(`tour/home`, props);
+    dispatch(getToursSuccess({ ...data, search: "" }));
+  } catch (e) {
+    dispatch(setLoading({ loading: false }));
+    pushToast("error", e.message);
+    return console.error(e.message);
+  }
+};

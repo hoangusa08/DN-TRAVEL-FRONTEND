@@ -6,13 +6,15 @@ import dataSlide from "./DataSlider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useGetProvince from "../../hook/useGetProvince";
-import http from "../../core/services/httpService";
+import { useHistory } from "react-router-dom";
+// import http from "../../core/services/httpService";
 
 export default function Slider() {
   const [slideIndex, setSlideIndex] = useState(1);
   const [startDate, setStartDate] = useState(new Date());
   const [provinces] = useGetProvince();
   const [location, setLocation] = useState();
+  const history = useHistory();
 
   const nextSlide = () => {
     if (slideIndex !== DataSlider.length) {
@@ -37,20 +39,27 @@ export default function Slider() {
   }, [provinces]);
 
   const handleSearch = () => {
-    http
-      .post(
-        `tour/home`,
-        {
-          date: startDate,
-          provinceId: location
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    history.push({
+      pathname: "Tour",
+      state: {
+        date: startDate,
+        provinceId: location,
+      },
+    });
+    // http
+    //   .post(
+    //     `tour/home`,
+    //     {
+    //       date: startDate,
+    //       provinceId: location
+    //     }
+    //   )
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
   };
 
   return (
