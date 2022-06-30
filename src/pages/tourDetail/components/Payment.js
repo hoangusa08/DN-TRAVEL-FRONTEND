@@ -4,8 +4,9 @@ import http from "../../../core/services/httpService";
 import "./Payment.scss";
 import PaypalButton from "./Paypal";
 import { pushToast } from "../../../components/Toast";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useGetApiCurrency from "../../../hook/useGetApiCurrency";
+import sessionStore from "../../../core/sessionStore";
 
 export default function Payment({ data }) {
   const [startDay, setStartDay] = useState(0);
@@ -14,6 +15,7 @@ export default function Payment({ data }) {
   const [isPayment, setisPayment] = useState(false);
   const [total, setTotal] = useState(0);
   const user = getUser();
+  const id = useParams();
   const history = useHistory();
   const [currency] = useGetApiCurrency();
   const changeFruit = (newFruit) => {
@@ -100,7 +102,13 @@ export default function Payment({ data }) {
                 Đặt tour
               </button>
             ) : (
-              <button className="order" onClick={() => history.push("/login")}>
+              <button
+                className="order"
+                onClick={() => {
+                  sessionStore.setItem("link", id);
+                  history.push("/login");
+                }}
+              >
                 Đăng nhập
               </button>
             )}

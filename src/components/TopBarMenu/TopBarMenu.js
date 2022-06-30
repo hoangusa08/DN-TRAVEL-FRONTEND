@@ -1,6 +1,6 @@
 import React, {  useLayoutEffect, useState } from "react";
 import "./TopBarMenu.scss";
-import logo from "../../assets/image/logo1.png";
+import logo from "../../assets/image/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { Link, useHistory } from "react-router-dom";

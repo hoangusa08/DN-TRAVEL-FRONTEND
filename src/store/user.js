@@ -3,6 +3,7 @@ import { setUserLocal, removeUserLocal } from "../core/localStore";
 import { pushToast } from "../components/Toast";
 import http from "../core/services/httpService";
 import { USER_ROLE, ERRORS } from "../core/constants";
+import sessionStore from "../core/sessionStore";
 
 const initialUser = localStorage.getItem("user")
   ? JSON.parse(localStorage.getItem("user"))
@@ -24,8 +25,14 @@ const slice = createSlice({
       } else {
         localStorage.removeItem("rememberMe");
       }
+      const idLink = sessionStore.getItem("link");
       if (!payload?.user?.isEnable) {
-        window.location.href = "/";
+        if(idLink){
+          window.location.href = `/TourDetail/${idLink.id}`;
+          sessionStore.removeItem("link");
+        }else{
+          window.location.href = "/";
+        }
         return;
       }
     },
