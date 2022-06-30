@@ -4,6 +4,9 @@
   display: flex;
   justify-content: space-between;
   flex: 1 auto;
+  .image{
+    width: 70px;
+  }
   .account-formik {
     width: 100%;
     

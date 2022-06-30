@@ -31,7 +31,8 @@ export default function TourHistory() {
             <thead>
               <tr>
                 <th>Stt</th>
-                <th>Tour</th>
+                <th style={{width: "100px"}}>Tour</th>
+                <th>Ảnh</th>
                 <th>Nhà Cung Cấp</th>
                 <th>Ngày Khởi Hành</th>
                 <th>Người lớn</th>
@@ -45,6 +46,9 @@ export default function TourHistory() {
                 <tr key={pay.id}>
                   <td>{pay.id}</td>
                   <td>{pay.tourName}</td>
+                  <td>
+                    <img className="image" src={pay.image} alt="" />
+                  </td>
                   <td>{pay.providerName}</td>
                   <td>{pay.schedule}</td>
                   <td>{pay.adultNumber}</td>

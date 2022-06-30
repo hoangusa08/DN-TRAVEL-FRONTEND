@@ -1,4 +1,4 @@
-import React, {  useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "./TopBarMenu.scss";
 import logo from "../../assets/image/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,7 +33,12 @@ export default function TopBarMenu({ handleMenu }) {
     <div className="TopBarMenu" onClick={() => setDropDown(false)}>
       <div className="row custom-container">
         <div className="col-md-3 col-sm-10 col-xs-10">
-          <img className="logo" src={logo} alt=""></img>
+          <img
+            className="logo"
+            src={logo}
+            alt=""
+            onClick={() => history.push("/")}
+          ></img>
         </div>
         <div className="col middle-menu">
           <div className="row">
@@ -47,7 +52,7 @@ export default function TopBarMenu({ handleMenu }) {
               <Link to="/maps">Bản Đồ</Link>
             </div>
             <div className="col">
-            <Link to="/contact">Liên Hệ</Link>
+              <Link to="/contact">Liên Hệ</Link>
             </div>
           </div>
         </div>
@@ -79,7 +84,12 @@ export default function TopBarMenu({ handleMenu }) {
                 </div>
                 {dropDown ? (
                   <div className="dropDown">
-                    <div className="item" onClick={()=> history.push("/account")}>Tài Khoản Của Tôi</div>
+                    <div
+                      className="item"
+                      onClick={() => history.push("/account")}
+                    >
+                      Tài Khoản Của Tôi
+                    </div>
                     <div className="item" onClick={() => onLogOut()}>
                       Đăng Xuất
                     </div>
