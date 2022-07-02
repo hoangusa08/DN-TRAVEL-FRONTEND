@@ -18,19 +18,37 @@ export default function Payment({ data }) {
   const id = useParams();
   const history = useHistory();
   const [currency] = useGetApiCurrency();
+  const [theRest, setTheRest] = useState(0);
   const changeFruit = (newFruit) => {
     setStartDay(newFruit);
+
+    for (let schedule of data?.schedules) {
+      if (+schedule.id === +newFruit)
+        setTheRest(
+          +data.numberPeople -
+            +schedule.currentPeople -
+            adultAmount -
+            childAmount
+        );
+    }
   };
 
   React.useEffect(() => {
     if (data) {
       setStartDay(data?.schedules[0].id);
+      setTheRest(+data.numberPeople - +data?.schedules[0].currentPeople);
     }
   }, [data]);
 
   React.useEffect(() => {
     if (data) {
       setTotal(adultAmount * data?.adultPrice + childAmount * data?.childPrice);
+      setTheRest(
+        +data.numberPeople -
+          +data?.schedules[0].currentPeople -
+          adultAmount -
+          childAmount
+      );
     }
   }, [adultAmount, childAmount]);
 
@@ -72,6 +90,10 @@ export default function Payment({ data }) {
               </option>
             ))}
           </select>
+          <div className="box-white">
+            <span className="box-white-title">Số chỗ còn lại</span>
+            <span className="price">{theRest}</span>
+          </div>
           <Item
             title="Người Lớn"
             price={data?.adultPrice}
