@@ -16,9 +16,17 @@ export const removeUserLocal = () => {
   localStorage.removeItem("user");
 };
 
+export const removeUser = () => {
+  localStorage.removeItem("user");
+};
+
 // set the token and user from the local storage
 export const setUserLocal = (token, user) => {
   localStorage.setItem("token", token);
+  localStorage.setItem("user", JSON.stringify(user));
+};
+
+export const setUserAvatar = (user) => {
   localStorage.setItem("user", JSON.stringify(user));
 };
 

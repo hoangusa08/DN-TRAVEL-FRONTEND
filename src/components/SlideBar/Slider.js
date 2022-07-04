@@ -46,20 +46,6 @@ export default function Slider() {
         provinceId: location,
       },
     });
-    // http
-    //   .post(
-    //     `tour/home`,
-    //     {
-    //       date: startDate,
-    //       provinceId: location
-    //     }
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
   };
 
   return (
@@ -99,7 +85,7 @@ export default function Slider() {
           </div>
           <div className="search-bottom">
             <span>Tailor tour - Trải nghiệm theo cách riêng của bạn</span>
-            <button>Đặt Tour Riêng</button>
+            {/* <button>Đặt Tour Riêng</button> */}
           </div>
         </div>
       </div>

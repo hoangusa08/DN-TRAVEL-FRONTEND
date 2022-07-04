@@ -19,18 +19,25 @@
   }
   .top{
     align-items: center;
+    .chose-image{
+      margin-left: 30%;
+      margin-top: 10px;
+    }
     .img-ctn{
       img{
-
-      width: 100%;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      margin-top: 10px;
       }
     }
     .changeImg{
-      margin-left: 40%;
+      margin-left: 35%;
       border: none;
       background-color: antiquewhite;
       padding: 0 10px;
       color: rgb(54, 49, 49);
+      margin-top: 10px;
       &:hover{
         cursor: pointer;
       }

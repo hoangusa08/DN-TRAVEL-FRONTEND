@@ -16,9 +16,9 @@ export default function TopBarMenu({ handleMenu }) {
   const [dropDown, setDropDown] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const temp = getUser();
 
   useLayoutEffect(() => {
-    const temp = getUser();
     if (temp) {
       setUser(temp?.fullName);
       setIsLogin(true);
@@ -69,7 +69,11 @@ export default function TopBarMenu({ handleMenu }) {
               </>
             ) : (
               <div className="col user">
-                <img src={AvatarDefauld} alt="" className="avatar" />
+                <img
+                  src={temp?.avatar ? temp?.avatar : AvatarDefauld}
+                  alt=""
+                  className="avatar"
+                />
                 <div
                   className="name"
                   onClick={(e) => {

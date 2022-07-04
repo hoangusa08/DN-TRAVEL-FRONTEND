@@ -17,8 +17,10 @@
       .user {
         display: flex;
         .avatar {
-          height: 50px;
+          height: 45px;
           margin-right: 10px;
+          width: 45px;
+          border-radius: 50%;
         }
         .name {
           padding-top: 12px;

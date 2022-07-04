@@ -22,10 +22,10 @@ export default function CardTourDetail({ tour }) {
             rating={tour.star}
             starDimension="20px"
           />
-          <h6 className="mota">/{tour.star}</h6>
+          <h6 className="mota" style={{color: "#f79321", fontSize:"18px"}}>/{tour.star}</h6>
         </div>
         <div>
-          <span>{tour.name.toUpperCase()}</span>
+          <span style={{color: "#00b4ff"}}>{tour.name.toUpperCase()}</span>
         </div>
         <div style={{paddingLeft: "10px"}}>
           <span>

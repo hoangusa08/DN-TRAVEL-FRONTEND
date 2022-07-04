@@ -1,32 +1,87 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-// import { getUser } from "../../../core/localStore";
 import "./UserNavigation.scss";
 import avatarDefault from "../../../assets/image/avatar-default-white.png";
+import { storage } from "../../../core/FireBase";
+import http from "../../../core/services/httpService";
+import { getUser, removeUser, setUserAvatar } from "../../../core/localStore";
 
 export default function UserNavigation() {
-  // const [user] = useState(getUser());
   const [active, setActive] = useState("");
+  const [editAvatar, seteditAvatar] = useState(false);
   const history = useHistory();
   const id = window.location.href.split("/");
+  const [avatar, setAvatar] = useState("");
+  const user = getUser();
 
   useEffect(() => {
     setActive(id[id.length - 1]);
   }, [id]);
 
+  useEffect(() => {
+    setAvatar(user?.avatar)
+    console.log('---hoang---',avatar);
+  }, []);
+
   const handleClick = (value) => {
     history.push(`/${value}`);
   };
+
+  const handleChange = (e) => {
+    if (e.target.files[0]) {
+      // setImage(e.target.files[0]);
+      // handleUpload()
+      const uploadTask = storage
+        .ref(`images/${e.target.files[0].name}`)
+        .put(e.target.files[0]);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {},
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(e.target.files[0].name)
+            .getDownloadURL()
+            .then((url) => {
+              setAvatar(url);
+              seteditAvatar(true)
+            });
+        }
+      );
+    }
+  };
+
+  const handlEditAvatar = () => {
+    console.log('---hoang---',avatar);
+    http.put("customer/edit-avatar", {
+      customerId: user?.id,
+      link: avatar
+    }).then((res) => {
+      console.log('---hoang---', res);
+      removeUser();
+      setUserAvatar(res.data);
+    }).catch((e) => {
+      console.log(e);
+    })
+  }
   return (
     <div className="userNavigation">
       <div className="top">
         <div className="img-ctn">
-          <img
-            src={avatarDefault}
-            alt="user"
-          ></img>
+          <img src={avatar ? avatar : avatarDefault} alt="user"></img>
         </div>
-        <button className="changeImg">Dổi ảnh</button>
+        {!editAvatar ? (
+          <input
+            className="chose-image"
+            type="file"
+            onChange={handleChange}
+          ></input>
+        ) : (
+          <button className="changeImg" onClick={()=> handlEditAvatar()}>Đổi ảnh</button>
+        )}
       </div>
       <div
         className={
@@ -66,7 +121,7 @@ export default function UserNavigation() {
         }
         onClick={() => handleClick("account")}
       >
-       Tài Khoản
+        Tài Khoản
       </div>
       <div
         className={
