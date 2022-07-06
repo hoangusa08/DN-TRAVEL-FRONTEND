@@ -35,7 +35,7 @@ export default function CardTourDetail({ tour }) {
       </div>
       <div className="ctn-price col-2">
         <div style={{marginTop:"30px", fontSize: "18px", fontWeight: 500}}>
-          <span>Giá: {tour.adultPrice}</span>
+          <span>Giá: {tour.adultPrice} VND</span>
         </div>
         <div >
           <Button className="chitiet">Chi tiết</Button>

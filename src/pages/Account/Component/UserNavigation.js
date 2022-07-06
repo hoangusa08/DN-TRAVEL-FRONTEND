@@ -5,6 +5,7 @@ import avatarDefault from "../../../assets/image/avatar-default-white.png";
 import { storage } from "../../../core/FireBase";
 import http from "../../../core/services/httpService";
 import { getUser, removeUser, setUserAvatar } from "../../../core/localStore";
+import { pushToast } from "../../../components/Toast";
 
 export default function UserNavigation() {
   const [active, setActive] = useState("");
@@ -19,8 +20,7 @@ export default function UserNavigation() {
   }, [id]);
 
   useEffect(() => {
-    setAvatar(user?.avatar)
-    console.log('---hoang---',avatar);
+    setAvatar(user?.avatar);
   }, []);
 
   const handleClick = (value) => {
@@ -29,8 +29,6 @@ export default function UserNavigation() {
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
-      // setImage(e.target.files[0]);
-      // handleUpload()
       const uploadTask = storage
         .ref(`images/${e.target.files[0].name}`)
         .put(e.target.files[0]);
@@ -47,7 +45,7 @@ export default function UserNavigation() {
             .getDownloadURL()
             .then((url) => {
               setAvatar(url);
-              seteditAvatar(true)
+              seteditAvatar(true);
             });
         }
       );
@@ -55,18 +53,20 @@ export default function UserNavigation() {
   };
 
   const handlEditAvatar = () => {
-    console.log('---hoang---',avatar);
-    http.put("customer/edit-avatar", {
-      customerId: user?.id,
-      link: avatar
-    }).then((res) => {
-      console.log('---hoang---', res);
-      removeUser();
-      setUserAvatar(res.data);
-    }).catch((e) => {
-      console.log(e);
-    })
-  }
+    http
+      .put("customer/edit-avatar", {
+        customerId: user?.id,
+        link: avatar,
+      })
+      .then((res) => {
+        pushToast("success", res?.message);
+        removeUser();
+        setUserAvatar(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <div className="userNavigation">
       <div className="top">
@@ -74,13 +74,21 @@ export default function UserNavigation() {
           <img src={avatar ? avatar : avatarDefault} alt="user"></img>
         </div>
         {!editAvatar ? (
-          <input
-            className="chose-image"
-            type="file"
-            onChange={handleChange}
-          ></input>
+          <>
+            <input
+              type="file"
+              id="file"
+              style={{ display: "none" }}
+              onChange={handleChange}
+            />
+            <label htmlFor="file" className="chose-image">
+              <span>Chọn ảnh</span>
+            </label>
+          </>
         ) : (
-          <button className="changeImg" onClick={()=> handlEditAvatar()}>Đổi ảnh</button>
+          <button className="changeImg" onClick={() => handlEditAvatar()}>
+            Đổi ảnh
+          </button>
         )}
       </div>
       <div

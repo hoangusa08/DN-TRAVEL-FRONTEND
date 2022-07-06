@@ -7,17 +7,17 @@ import Home from "./pages/home/Home";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          {routeConfig.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
-          ))}
-        </Switch>
-      </BrowserRouter>
-      <Toast />
-    </div>
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {routeConfig.map((route, i) => (
+              <RouteWithSubRoutes key={i} {...route} />
+            ))}
+          </Switch>
+        </BrowserRouter>
+        <Toast />
+      </div>
   );
 }
 

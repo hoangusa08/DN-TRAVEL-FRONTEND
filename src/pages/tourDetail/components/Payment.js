@@ -21,7 +21,6 @@ export default function Payment({ data }) {
   const [theRest, setTheRest] = useState(0);
   const changeFruit = (newFruit) => {
     setStartDay(newFruit);
-
     for (let schedule of data?.schedules) {
       if (+schedule.id === +newFruit)
         setTheRest(
@@ -71,6 +70,24 @@ export default function Payment({ data }) {
       });
   };
 
+  const checkPayment = async () => {
+    await http
+      .post("/tour/check-payment", {
+        customerId: user?.id,
+        tourId: data?.id,
+        scheduleId: startDay,
+      })
+      .then((res) => {
+        if (res.data === false) {
+          pushToast("error", "Tour này bạn đã đặt");
+        }
+        setisPayment(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <div className="payment">
       {!isPayment ? (
@@ -98,6 +115,7 @@ export default function Payment({ data }) {
             title="Người Lớn"
             price={data?.adultPrice}
             amount={adultAmount}
+            theRest={theRest}
             setAmount={setAdultAmount}
           ></Item>
           <Item
@@ -105,6 +123,7 @@ export default function Payment({ data }) {
             price={data?.childPrice}
             amount={childAmount}
             setAmount={setChildAmount}
+            theRest={theRest}
           ></Item>
           <div className="total">
             <span className="total--title"> Tổng Cộng :</span>
@@ -119,7 +138,7 @@ export default function Payment({ data }) {
               <button
                 className="order"
                 disabled={total === 0}
-                onClick={() => setisPayment(true)}
+                onClick={() => checkPayment()}
               >
                 Đặt tour
               </button>
@@ -148,12 +167,16 @@ export default function Payment({ data }) {
   );
 }
 
-function Item({ title, price, amount, setAmount }) {
+function Item({ title, price, amount, setAmount, theRest }) {
   return (
     <div className="box-white">
       <span className="box-white-title">{title}</span>
       <span className="price">x{price}</span>
-      <button className="sum" onClick={() => setAmount(amount + 1)}>
+      <button
+        className="sum"
+        onClick={() => setAmount(amount + 1)}
+        disabled={theRest === 0}
+      >
         +
       </button>
       <span className="total">{amount}</span>
