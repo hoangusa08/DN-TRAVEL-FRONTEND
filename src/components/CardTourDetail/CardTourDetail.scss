@@ -1,18 +1,18 @@
-.card-tour-detail{
+.card-tour-detail {
   display: flex;
   height: 200px;
-  border: 1px solid #D9D9DE;
+  border: 1px solid #d9d9de;
   margin-top: 10px !important;
-  .ctn-img{
+  .ctn-img {
     height: 100%;
     padding: unset;
     z-index: 1;
     overflow: hidden;
-    img{
+    img {
       height: 100%;
       width: 100%;
       transform: scale(1.5);
-      &:hover{
+      &:hover {
         width: 100%;
         height: 100%;
         transition: 1s;
@@ -20,28 +20,42 @@
       }
     }
   }
-  &:hover{
+  &:hover {
     background-color: #e4f0fa;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
-  .ctn-price{
-    border-left: 1px solid rgba(0,0,0,0.22) ;
+  .ctn-price {
+    border-left: 1px solid rgba(0, 0, 0, 0.22);
     padding-left: 30px;
-    .chitiet{
+    .chitiet {
       margin-top: 20px;
     }
   }
-  .ctn-detail{
+  .ctn-detail {
     padding: 20px;
     font-size: 18px;
-    .star-ctn{
+    .star-ctn {
       display: flex;
-      .mota{
+      .mota {
         margin-left: 10px;
         margin-top: 9px;
       }
     }
-    
+    .sub-name {
+      // display: -webkit-box;
+      // -webkit-line-clamp: 2;
+      // -webkit-box-orient: vertical;
+      // overflow: hidden;
+      span {
+        color: #00b4ff;
+      }
+    }
+    .sub-des {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      padding-left: 10px;
+    }
   }
 }
-

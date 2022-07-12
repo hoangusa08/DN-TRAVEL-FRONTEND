@@ -36,7 +36,7 @@ http.interceptors.response.use(
     if (data && data.message) {
       throw data;
     } else {
-      error.message = "Some thing wrong";
+      error.message = "Hệ thống đang lỗi";
       throw error;
     }
   }

@@ -30,6 +30,12 @@ export default function TourDetail() {
               <i>{data?.totalStar}</i>| {data?.rateTours?.length} Lượt đánh giá
             </div>
           </div>
+          <div className="company">
+            Đơn vị tổ chức: <strong>{data?.company.toUpperCase()}</strong>
+          </div>
+          <div className="company">
+            Thể loại: <strong> {data?.category.name.toUpperCase()}</strong>
+          </div>
         </div>
 
         <div className="tourDetail-bottom">

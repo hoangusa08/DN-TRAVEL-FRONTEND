@@ -62,6 +62,7 @@ export default function UserNavigation() {
         pushToast("success", res?.message);
         removeUser();
         setUserAvatar(res.data);
+        window.location.reload();
       })
       .catch((e) => {
         console.log(e);

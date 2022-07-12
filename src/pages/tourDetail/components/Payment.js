@@ -137,7 +137,7 @@ export default function Payment({ data }) {
             {user ? (
               <button
                 className="order"
-                disabled={total === 0}
+                disabled={total === 0 || adultAmount === 0}
                 onClick={() => checkPayment()}
               >
                 Đặt tour

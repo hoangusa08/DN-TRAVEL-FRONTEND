@@ -40,7 +40,7 @@ export default function Slider() {
 
   const handleSearch = () => {
     history.push({
-      pathname: "Tour",
+      pathname: "/Tour",
       state: {
         date: startDate,
         provinceId: location,
